@@ -1,0 +1,13 @@
+void foo() {
+    int x;
+    read x;
+    write x;
+}
+int main() {
+    float f;
+    read f;
+    if (f > 23 + 3.14) {
+        write f;
+    }
+    return 0;
+}
