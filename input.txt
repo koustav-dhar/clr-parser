@@ -1,9 +1,11 @@
 %
-program,functions
+S,A,B
 %
-function
+a,b
 %
-program-function functions|function
+A-a A|a|ε
+B-b B|b
+S-A B
 %
-program
+S
 %

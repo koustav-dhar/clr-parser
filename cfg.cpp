@@ -3,13 +3,16 @@
 using namespace std;
 
 class Grammar{
-    private:
+    protected:
         vector<string> non_terminals;
         vector<string> terminals;
-        vector<pair<string, vector<vector<string>>>> productions;
+        // vector<pair<string, vector<vector<string>>>> productions;
+        unordered_map<string, vector<vector<string>>> productions;
         string start_symbol;
-
     public:
+        Grammar(){
+
+        }
         Grammar(string file_name){
             try{
                 FILE *fp = fopen(file_name.c_str(), "r");
@@ -37,7 +40,8 @@ class Grammar{
                             else if(segment_no == 3){
                                 curr_col_str.push_back(curr_str);
                                 curr_rhs.push_back(curr_col_str);
-                                productions.push_back(pair<string, vector<vector<string>>>(curr_lhs, curr_rhs));
+                                productions[curr_lhs] = curr_rhs;
+                                // productions.push_back(pair<string, vector<vector<string>>>(curr_lhs, curr_rhs));
                                 curr_col_str.clear();
                                 curr_rhs.clear();
                             }
@@ -88,20 +92,21 @@ class Grammar{
 
         void print_grammar(){
             cout << "The Grammar is -----\n";
-            for(int i=0; i<productions.size();i++){
-                cout << '\'' << productions[i].first << '\'' << " -> ";
-                for(int j=0;j<productions[i].second.size();j++){
-                    for(int k=0;k<productions[i].second[j].size();k++){
-                        cout << '\'' << productions[i].second[j][k] << '\'' << " ";
-                    }
-                    cout << "| ";
-                }
-                cout << "\n";
-            }
+            // for(int i=0; i<productions.size();i++){
+            //     cout << '\'' << productions[i].first << '\'' << " -> ";
+            //     for(int j=0;j<productions[i].second.size();j++){
+            //         for(int k=0;k<productions[i].second[j].size();k++){
+            //             cout << '\'' << productions[i].second[j][k] << '\'' << " ";
+            //         }
+            //         cout << "| ";
+            //     }
+            //     cout << "\n";
+            // }
         }
+        friend class CLR1Parser;
 };
 
-int main(){
-    Grammar g = Grammar("input.txt");
-    g.print_grammar();
-}
+// int main(){
+//     Grammar g = Grammar("input.txt");
+//     g.print_grammar();
+// }
