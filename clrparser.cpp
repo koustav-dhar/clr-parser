@@ -7,6 +7,25 @@ using namespace std;
 
 // ε
 
+class ProductionLookahead {
+    string lhs;
+    vector<string> rhs;
+    int index;
+    public:
+    ProductionLookahead(string nt, vector<string> prod) {
+        lhs = nt;
+        rhs = prod;
+        index = 0;
+    }
+};
+
+class Item {
+    int node;
+    vector<ProductionLookahead> prods;
+    public:
+    
+};
+
 class CLR1Parser {
     Grammar G;
     unordered_map<string, unordered_set<string>> firstSet;
@@ -49,7 +68,7 @@ class CLR1Parser {
 
     }
 
-    
+
 
     void showFirstSet() {
         for (auto itr : firstSet) {
