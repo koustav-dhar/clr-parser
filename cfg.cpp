@@ -103,6 +103,23 @@ class Grammar{
             //     cout << "\n";
             // }
         }
+
+        bool is_non_terminal(string s){
+            for(string x : non_terminals){
+                if(x == s)
+                    return true;
+            }
+            return false;
+        }
+
+        bool is_terminal(string s){
+            for(string x : terminals){
+                if(x == s)
+                    return true;
+            }
+            return false;
+        }
+
         friend class CLR1Parser;
 };
 

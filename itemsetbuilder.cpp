@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "cfg.cpp"
+// #include "cfg.cpp"
 #include "firstsetbuilder.cpp"
 
 using namespace std;
@@ -315,11 +315,11 @@ class ItemSet{
     }
 };
 
-int main(){
-    Grammar g = Grammar("input.txt");
-    ItemSet is = ItemSet(g);
-    is.print_item_set();
-    // Item i = Item(0, pl_list, g);
-    // i.print_item();
-    // cout << "\n" << "Is I&I same : " << i.is_equal(i) << "\n";
-}
+// int main(){
+//     Grammar g = Grammar("input2.txt");
+//     ItemSet is = ItemSet(g);
+//     is.print_item_set();
+//     // Item i = Item(0, pl_list, g);
+//     // i.print_item();
+//     // cout << "\n" << "Is I&I same : " << i.is_equal(i) << "\n";
+// }
