@@ -3,7 +3,7 @@
 using namespace std;
 
 class Grammar{
-    protected:
+    public:
         vector<string> non_terminals;
         vector<string> terminals;
         // vector<pair<string, vector<vector<string>>>> productions;

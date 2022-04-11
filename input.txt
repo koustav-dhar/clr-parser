@@ -1,11 +1,11 @@
 %
-S,A,B
+S,L,R
 %
-a,b
+*,=,id
 %
-A-a A|a|ε
-B-b B|b
-S-A B
+S-L = R|R
+L-* R|id
+R-L
 %
 S
 %
