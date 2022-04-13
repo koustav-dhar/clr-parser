@@ -1,0 +1,1 @@
+void id ( ) { int id ; read id ; write id ; } int main ( ) { float id ; read id ; if ( id > int + float ) { write id ; } return int ; } 

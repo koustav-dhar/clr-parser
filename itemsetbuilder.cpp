@@ -228,6 +228,7 @@ class ItemSet{
     public:
     vector<Item> items;
     vector<EdgeInfo> edge_list;
+    string augmented_start_symbol;
 
     public:
     ItemSet(){
@@ -257,7 +258,8 @@ class ItemSet{
         la.insert("$");
         vector<string> prod;
         prod.push_back(g.start_symbol);
-        ProductionLookahead pl = ProductionLookahead(g.start_symbol+"\'", prod, 0, la);
+        augmented_start_symbol = g.start_symbol+"\'";
+        ProductionLookahead pl = ProductionLookahead(augmented_start_symbol, prod, 0, la);
         // cout << "size : " << pl.rhs.size() << "\n";
         vector<ProductionLookahead> pl_list;
         pl_list.push_back(pl);
