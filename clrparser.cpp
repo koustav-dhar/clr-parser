@@ -42,6 +42,10 @@ class CLR1Parser {
     vector<unordered_map<string, TableEntry>> parsing_table;
 
     public: 
+    CLR1Parser(){
+        //Do nothing
+    }
+
     CLR1Parser(string file_name) {
         G = Grammar(file_name);
         item_set = ItemSet(G);
@@ -63,45 +67,54 @@ class CLR1Parser {
                 }
             }
         }
+
+        print_parsing_table("parsing_table.txt");
     }
 
-    void print_parsing_table(){
+    void print_parsing_table(string file_name){
+        ofstream of(file_name);
+        if(!of.is_open()){
+            cout << "Couldn't open file : " << file_name << "\n";
+            return;
+        }
         int index = 0;
         for(unordered_map<string, TableEntry> temp : parsing_table){
-            cout << "\nTable entry for Item " << index << " -----\n";
-            cout << "GOTO Entries\n";
+            of << "\n\nTable entry for Item " << index << " -----\n";
+            of << "GOTO Entries\n";
             for(string t : G.terminals){
                 if(temp.find(t) != temp.end()){
                     TableEntry te = temp[t];
-                    cout << "On symbol : " << t << " ";
-                    cout << "Op name : " << te.op_type;
+                    of << "On symbol : " << t << " ";
+                    of << "Op name : " << te.op_type;
                     if(te.op_type == "shift"){
-                        cout << " goto : " << te.new_state_no;
+                        of << " goto : " << te.new_state_no;
                     }
                     else if(te.op_type == "reduce"){
-                        cout << " Reduce : " << te.reducing_rule.first << " -> ";
+                        of << " Reduce : " << te.reducing_rule.first << " -> ";
                         for(string s : te.reducing_rule.second){
-                            cout << s << " ";
+                            of << s << " ";
                         }
                     }
-                    cout << "\n";
+                    of << "\n";
                 }
             }
 
-            cout << "ACTION Entries\n";
+            of << "ACTION Entries\n";
             for(string t : G.non_terminals){
                 if(temp.find(t) != temp.end()){
                     TableEntry te = temp[t];
-                    cout << "On symbol : " << t << " ";
-                    cout << "Op name : " << te.op_type;
+                    of << "On symbol : " << t << " ";
+                    of << "Op name : " << te.op_type;
                     if(te.op_type == "goto"){
-                        cout << " goto : " << te.new_state_no;
+                        of << " goto : " << te.new_state_no;
                     }
-                    cout << "\n";
+                    of << "\n";
                 }
             }
             index++;
         }
+
+        of.close();
     }
     
     void parse(string file_name){
@@ -117,7 +130,8 @@ class CLR1Parser {
         bool flag = false;
 
         while(getline(inp_file, token, ' ')){
-            tokens.push_back(token);
+            if(!token.empty())
+                tokens.push_back(token);
         }
         tokens.push_back("$");
 
@@ -126,10 +140,12 @@ class CLR1Parser {
         while(curr_index < tokens.size()){
             if(!pruning_stack.empty() && pruning_stack.top()==item_set.augmented_start_symbol && tokens[curr_index]=="$"){
                 flag = true;
+                // cout << "Break cause end does not occur at s1-$\n";
                 break;
             }
 
             if(parsing_table[state_stack.top()].find(tokens[curr_index]) == parsing_table[state_stack.top()].end()){
+                cout << "Top : " << state_stack.top() << "Current token : " << tokens[curr_index] << "Can't find stack top symbol for current token\n";
                 break;
             }
             else{
@@ -142,7 +158,11 @@ class CLR1Parser {
                 }
                 else if(te.op_type == "reduce"){
                     // cout << "Top initially : " << state_stack.top() << "\n";
-                    
+                    cout << "Rule : " << te.reducing_rule.first << " -> ";
+                    for(string curr : te.reducing_rule.second){
+                        cout << curr << " ";
+                    }
+                    cout << "\n";
                     
                     int size = te.reducing_rule.second.size();
                     for(int i=0; i<size; i++){
@@ -154,6 +174,7 @@ class CLR1Parser {
                         continue;
 
                     if(parsing_table[state_stack.top()].find(pruning_stack.top()) == parsing_table[state_stack.top()].end()){
+                        // cout << "Can't find stack top symbol for current non terminal\n";
                         break;
                     }
                     else{
@@ -168,10 +189,10 @@ class CLR1Parser {
         // cout << "Stack top : " << pruning_stack.top() << "\n";
 
         if(flag){
-            cout << "The input belongs to this language\n";
+            cout << "\nThe input belongs to this language\n\n";
         }
         else{
-            cout << "The input does not belongs to this language\n";
+            cout << "\nThe input does not belongs to this language\n\n";
         }
     }
 };

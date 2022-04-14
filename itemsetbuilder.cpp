@@ -174,20 +174,20 @@ class Item {
         prods = dummy_prod;
     }
 
-    void print_item(){
-        cout << "Item No. : " << node << " -----\n";
+    void print_item(ofstream &of){
+        of << "Item No. : " << node << " -----\n";
         for(ProductionLookahead pl : prods){
-            cout << pl.lhs << " -> ";
+            of << pl.lhs << " -> ";
             for(int i=0;i<pl.rhs.size();i++){
                 if(i == pl.index)
-                    cout << ". ";
-                cout << pl.rhs[i] << " ";
+                    of << ". ";
+                of << pl.rhs[i] << " ";
             }
-            cout << "\tlookahead : ";
+            of << "\tlookahead : ";
             for(string curr : pl.look_ahead){
-                cout << curr << " ";
+                of << curr << " ";
             }
-            cout << "\n";
+            of << "\n";
         }
     }
 
@@ -302,18 +302,28 @@ class ItemSet{
 
             curr_index++;
         }
+
+        print_item_set("item_set.txt");
     }
 
-    void print_item_set(){
+    void print_item_set(string file_name){
+        ofstream of(file_name);
+        if(!of.is_open()){
+            cout << "Couldn't open file : " << file_name << "\n";
+            return;
+        }
         for(Item curr : items){
-            cout << "\n";
-            curr.print_item();   
+            of << "\n";
+            curr.print_item(of);   
         }
 
-        cout << "\nEdge List -----\n";
+        of << "\nEdge List -----\n";
+        of << "\t" << "From" << "\t" << "To" << "\t" << "On symbol" << "\n";
         for(EdgeInfo ei : edge_list){
-            cout << "  " << ei.from << "\t" << ei.to << "\t" << ei.symbol << "\n";
+            of << "\t" << ei.from << "\t" << ei.to << "\t" << ei.symbol << "\n";
         }
+
+        of.close();
     }
 };
 

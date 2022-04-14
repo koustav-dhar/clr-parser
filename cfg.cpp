@@ -11,8 +11,9 @@ class Grammar{
         string start_symbol;
     public:
         Grammar(){
-
+            //Do nothing
         }
+
         Grammar(string file_name){
             try{
                 FILE *fp = fopen(file_name.c_str(), "r");
@@ -22,8 +23,9 @@ class Grammar{
                 int segment_no = 0;
                 while(!feof(fp)){
                     char ch = getc(fp);
+                    // cout << "LHS : " << ch << "\n";
                     switch(ch){
-                        case '%':
+                        case '#':
                             curr_str.clear();
                             curr_lhs.clear();
                             curr_col_str.clear();
@@ -49,19 +51,10 @@ class Grammar{
                                 start_symbol = curr_str;
                             curr_str.clear();
                             break;
-                        case '-':
+                        case '@':
                             if(segment_no == 3){
                                 curr_lhs = curr_str;
-                                curr_str.clear();
-                            }
-                            break;
-                        case ',':
-                            if(segment_no == 1){
-                                non_terminals.push_back(curr_str); 
-                                curr_str.clear();
-                            }
-                            else if(segment_no == 2){
-                                terminals.push_back(curr_str);
+                                // cout << "LHS : " << curr_str << "\n";
                                 curr_str.clear();
                             }
                             break;
@@ -72,6 +65,14 @@ class Grammar{
                             }
                             break;
                         case '|':
+                            if(segment_no == 1){
+                                non_terminals.push_back(curr_str); 
+                                curr_str.clear();
+                            }
+                            else if(segment_no == 2){
+                                terminals.push_back(curr_str);
+                                curr_str.clear();
+                            }
                             if(segment_no == 3){
                                 curr_col_str.push_back(curr_str);
                                 curr_rhs.push_back(curr_col_str);
@@ -84,6 +85,7 @@ class Grammar{
                             break;
                     }
                 }
+                fclose(fp);
             }
             catch(exception e){
                 cout << "Failed to build the grammar\n";

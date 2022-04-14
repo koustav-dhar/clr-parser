@@ -1,1 +1,33 @@
-c c c d c d c d
+int swap_func(int a,int b){
+    int swap;
+    swap=a;
+    a=b;
+    b=swap;
+    return 1;
+}
+
+void main(){
+    float f;
+    int c;
+    swap(a,swap(b,c));
+    d= c++;
+    c++;
+    if(a>=2){
+        a=swap(a,b);
+        foo(t);
+        foo();
+    }
+    else{
+        b=a;
+        if(swap(5,a)==3){
+        }
+        else{
+            int c;
+            c=4;
+            c++;
+            write c;
+        }
+    }
+}
+
+

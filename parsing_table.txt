@@ -1,0 +1,1758 @@
+
+
+Table entry for Item 0 -----
+GOTO Entries
+On symbol : void Op name : shift goto : 6
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+ACTION Entries
+On symbol : prog Op name : goto goto : 1
+On symbol : func Op name : goto goto : 2
+On symbol : main_func Op name : goto goto : 3
+On symbol : funcs Op name : goto goto : 4
+On symbol : data_type Op name : goto goto : 5
+
+
+Table entry for Item 1 -----
+GOTO Entries
+On symbol : $ Op name : reduce Reduce : prog' -> prog 
+ACTION Entries
+
+
+Table entry for Item 2 -----
+GOTO Entries
+On symbol : void Op name : reduce Reduce : funcs -> func 
+On symbol : int Op name : reduce Reduce : funcs -> func 
+On symbol : float Op name : reduce Reduce : funcs -> func 
+ACTION Entries
+
+
+Table entry for Item 3 -----
+GOTO Entries
+On symbol : $ Op name : reduce Reduce : prog -> main_func 
+ACTION Entries
+
+
+Table entry for Item 4 -----
+GOTO Entries
+On symbol : void Op name : shift goto : 6
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+ACTION Entries
+On symbol : func Op name : goto goto : 9
+On symbol : main_func Op name : goto goto : 10
+On symbol : data_type Op name : goto goto : 5
+
+
+Table entry for Item 5 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 11
+ACTION Entries
+
+
+Table entry for Item 6 -----
+GOTO Entries
+On symbol : main Op name : shift goto : 12
+On symbol : id Op name : shift goto : 13
+ACTION Entries
+
+
+Table entry for Item 7 -----
+GOTO Entries
+On symbol : id Op name : reduce Reduce : data_type -> int 
+ACTION Entries
+
+
+Table entry for Item 8 -----
+GOTO Entries
+On symbol : id Op name : reduce Reduce : data_type -> float 
+ACTION Entries
+
+
+Table entry for Item 9 -----
+GOTO Entries
+On symbol : void Op name : reduce Reduce : funcs -> funcs func 
+On symbol : int Op name : reduce Reduce : funcs -> funcs func 
+On symbol : float Op name : reduce Reduce : funcs -> funcs func 
+ACTION Entries
+
+
+Table entry for Item 10 -----
+GOTO Entries
+On symbol : $ Op name : reduce Reduce : prog -> funcs main_func 
+ACTION Entries
+
+
+Table entry for Item 11 -----
+GOTO Entries
+On symbol : ( Op name : shift goto : 14
+ACTION Entries
+
+
+Table entry for Item 12 -----
+GOTO Entries
+On symbol : ( Op name : shift goto : 15
+ACTION Entries
+
+
+Table entry for Item 13 -----
+GOTO Entries
+On symbol : ( Op name : shift goto : 16
+ACTION Entries
+
+
+Table entry for Item 14 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : ) Op name : shift goto : 20
+ACTION Entries
+On symbol : data_type Op name : goto goto : 17
+On symbol : params Op name : goto goto : 18
+On symbol : param Op name : goto goto : 19
+
+
+Table entry for Item 15 -----
+GOTO Entries
+On symbol : ) Op name : shift goto : 21
+ACTION Entries
+
+
+Table entry for Item 16 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : ) Op name : shift goto : 23
+ACTION Entries
+On symbol : data_type Op name : goto goto : 17
+On symbol : params Op name : goto goto : 22
+On symbol : param Op name : goto goto : 19
+
+
+Table entry for Item 17 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 24
+ACTION Entries
+
+
+Table entry for Item 18 -----
+GOTO Entries
+On symbol : ) Op name : shift goto : 25
+On symbol : , Op name : shift goto : 26
+ACTION Entries
+
+
+Table entry for Item 19 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : params -> param 
+On symbol : , Op name : reduce Reduce : params -> param 
+ACTION Entries
+
+
+Table entry for Item 20 -----
+GOTO Entries
+On symbol : { Op name : shift goto : 27
+ACTION Entries
+
+
+Table entry for Item 21 -----
+GOTO Entries
+On symbol : { Op name : shift goto : 28
+ACTION Entries
+
+
+Table entry for Item 22 -----
+GOTO Entries
+On symbol : ) Op name : shift goto : 29
+On symbol : , Op name : shift goto : 26
+ACTION Entries
+
+
+Table entry for Item 23 -----
+GOTO Entries
+On symbol : { Op name : shift goto : 30
+ACTION Entries
+
+
+Table entry for Item 24 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : param -> data_type id 
+On symbol : , Op name : reduce Reduce : param -> data_type id 
+ACTION Entries
+
+
+Table entry for Item 25 -----
+GOTO Entries
+On symbol : { Op name : shift goto : 31
+ACTION Entries
+
+
+Table entry for Item 26 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+ACTION Entries
+On symbol : data_type Op name : goto goto : 17
+On symbol : param Op name : goto goto : 32
+
+
+Table entry for Item 27 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 49
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmts Op name : goto goto : 35
+On symbol : stmt Op name : goto goto : 36
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 47
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 28 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 58
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmts Op name : goto goto : 57
+On symbol : stmt Op name : goto goto : 36
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 47
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 29 -----
+GOTO Entries
+On symbol : { Op name : shift goto : 59
+ACTION Entries
+
+
+Table entry for Item 30 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 61
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmts Op name : goto goto : 60
+On symbol : stmt Op name : goto goto : 36
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 47
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 31 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 63
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmts Op name : goto goto : 62
+On symbol : stmt Op name : goto goto : 36
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 47
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 32 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : params -> params , param 
+On symbol : , Op name : reduce Reduce : params -> params , param 
+ACTION Entries
+
+
+Table entry for Item 33 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 64
+ACTION Entries
+
+
+Table entry for Item 34 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : stmt -> decl 
+On symbol : float Op name : reduce Reduce : stmt -> decl 
+On symbol : } Op name : reduce Reduce : stmt -> decl 
+On symbol : id Op name : reduce Reduce : stmt -> decl 
+On symbol : read Op name : reduce Reduce : stmt -> decl 
+On symbol : write Op name : reduce Reduce : stmt -> decl 
+On symbol : return Op name : reduce Reduce : stmt -> decl 
+On symbol : c_int Op name : reduce Reduce : stmt -> decl 
+On symbol : c_float Op name : reduce Reduce : stmt -> decl 
+On symbol : if Op name : reduce Reduce : stmt -> decl 
+ACTION Entries
+
+
+Table entry for Item 35 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 67
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmt Op name : goto goto : 65
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 66
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 36 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : stmts -> stmt 
+On symbol : float Op name : reduce Reduce : stmts -> stmt 
+On symbol : } Op name : reduce Reduce : stmts -> stmt 
+On symbol : id Op name : reduce Reduce : stmts -> stmt 
+On symbol : read Op name : reduce Reduce : stmts -> stmt 
+On symbol : write Op name : reduce Reduce : stmts -> stmt 
+On symbol : return Op name : reduce Reduce : stmts -> stmt 
+On symbol : c_int Op name : reduce Reduce : stmts -> stmt 
+On symbol : c_float Op name : reduce Reduce : stmts -> stmt 
+On symbol : if Op name : reduce Reduce : stmts -> stmt 
+ACTION Entries
+
+
+Table entry for Item 37 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : stmt -> norm 
+On symbol : float Op name : reduce Reduce : stmt -> norm 
+On symbol : } Op name : reduce Reduce : stmt -> norm 
+On symbol : id Op name : reduce Reduce : stmt -> norm 
+On symbol : read Op name : reduce Reduce : stmt -> norm 
+On symbol : write Op name : reduce Reduce : stmt -> norm 
+On symbol : return Op name : reduce Reduce : stmt -> norm 
+On symbol : c_int Op name : reduce Reduce : stmt -> norm 
+On symbol : c_float Op name : reduce Reduce : stmt -> norm 
+On symbol : if Op name : reduce Reduce : stmt -> norm 
+ACTION Entries
+
+
+Table entry for Item 38 -----
+GOTO Entries
+On symbol : ; Op name : shift goto : 68
+ACTION Entries
+
+
+Table entry for Item 39 -----
+GOTO Entries
+On symbol : ; Op name : shift goto : 69
+ACTION Entries
+
+
+Table entry for Item 40 -----
+GOTO Entries
+On symbol : ; Op name : shift goto : 70
+ACTION Entries
+
+
+Table entry for Item 41 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : H -> const 
+On symbol : + Op name : reduce Reduce : H -> const 
+On symbol : - Op name : reduce Reduce : H -> const 
+On symbol : * Op name : reduce Reduce : H -> const 
+On symbol : / Op name : reduce Reduce : H -> const 
+On symbol : % Op name : reduce Reduce : H -> const 
+ACTION Entries
+
+
+Table entry for Item 42 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 72
+On symbol : c_int Op name : shift goto : 73
+On symbol : c_float Op name : shift goto : 74
+ACTION Entries
+On symbol : const Op name : goto goto : 71
+
+
+Table entry for Item 43 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : exp -> E 
+On symbol : + Op name : shift goto : 75
+On symbol : - Op name : shift goto : 76
+ACTION Entries
+
+
+Table entry for Item 44 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : E -> T 
+On symbol : + Op name : reduce Reduce : E -> T 
+On symbol : - Op name : reduce Reduce : E -> T 
+On symbol : * Op name : shift goto : 77
+On symbol : / Op name : shift goto : 78
+On symbol : % Op name : shift goto : 79
+ACTION Entries
+
+
+Table entry for Item 45 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : T -> F 
+On symbol : + Op name : reduce Reduce : T -> F 
+On symbol : - Op name : reduce Reduce : T -> F 
+On symbol : * Op name : reduce Reduce : T -> F 
+On symbol : / Op name : reduce Reduce : T -> F 
+On symbol : % Op name : reduce Reduce : T -> F 
+ACTION Entries
+
+
+Table entry for Item 46 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : F -> H 
+On symbol : + Op name : reduce Reduce : F -> H 
+On symbol : - Op name : reduce Reduce : F -> H 
+On symbol : * Op name : reduce Reduce : F -> H 
+On symbol : / Op name : reduce Reduce : F -> H 
+On symbol : % Op name : reduce Reduce : F -> H 
+ACTION Entries
+
+
+Table entry for Item 47 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : stmts -> if_el 
+On symbol : float Op name : reduce Reduce : stmts -> if_el 
+On symbol : } Op name : reduce Reduce : stmts -> if_el 
+On symbol : id Op name : reduce Reduce : stmts -> if_el 
+On symbol : read Op name : reduce Reduce : stmts -> if_el 
+On symbol : write Op name : reduce Reduce : stmts -> if_el 
+On symbol : return Op name : reduce Reduce : stmts -> if_el 
+On symbol : c_int Op name : reduce Reduce : stmts -> if_el 
+On symbol : c_float Op name : reduce Reduce : stmts -> if_el 
+On symbol : if Op name : reduce Reduce : stmts -> if_el 
+ACTION Entries
+
+
+Table entry for Item 48 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : H -> func_call 
+On symbol : + Op name : reduce Reduce : H -> func_call 
+On symbol : - Op name : reduce Reduce : H -> func_call 
+On symbol : * Op name : reduce Reduce : H -> func_call 
+On symbol : / Op name : reduce Reduce : H -> func_call 
+On symbol : % Op name : reduce Reduce : H -> func_call 
+ACTION Entries
+
+
+Table entry for Item 49 -----
+GOTO Entries
+On symbol : void Op name : reduce Reduce : func -> data_type id ( ) { } 
+On symbol : int Op name : reduce Reduce : func -> data_type id ( ) { } 
+On symbol : float Op name : reduce Reduce : func -> data_type id ( ) { } 
+ACTION Entries
+
+
+Table entry for Item 50 -----
+GOTO Entries
+On symbol : ( Op name : shift goto : 80
+On symbol : ; Op name : reduce Reduce : H -> id 
+On symbol : + Op name : reduce Reduce : H -> id 
+On symbol : - Op name : reduce Reduce : H -> id 
+On symbol : * Op name : reduce Reduce : H -> id 
+On symbol : / Op name : reduce Reduce : H -> id 
+On symbol : % Op name : reduce Reduce : H -> id 
+On symbol : = Op name : shift goto : 81
+On symbol : ++ Op name : shift goto : 82
+ACTION Entries
+
+
+Table entry for Item 51 -----
+GOTO Entries
+On symbol : id Op name : reduce Reduce : io_op -> read 
+On symbol : c_int Op name : reduce Reduce : io_op -> read 
+On symbol : c_float Op name : reduce Reduce : io_op -> read 
+ACTION Entries
+
+
+Table entry for Item 52 -----
+GOTO Entries
+On symbol : id Op name : reduce Reduce : io_op -> write 
+On symbol : c_int Op name : reduce Reduce : io_op -> write 
+On symbol : c_float Op name : reduce Reduce : io_op -> write 
+ACTION Entries
+
+
+Table entry for Item 53 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 84
+On symbol : c_int Op name : shift goto : 73
+On symbol : c_float Op name : shift goto : 74
+ACTION Entries
+On symbol : const Op name : goto goto : 83
+
+
+Table entry for Item 54 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : const -> c_int 
+On symbol : + Op name : reduce Reduce : const -> c_int 
+On symbol : - Op name : reduce Reduce : const -> c_int 
+On symbol : * Op name : reduce Reduce : const -> c_int 
+On symbol : / Op name : reduce Reduce : const -> c_int 
+On symbol : % Op name : reduce Reduce : const -> c_int 
+ACTION Entries
+
+
+Table entry for Item 55 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : const -> c_float 
+On symbol : + Op name : reduce Reduce : const -> c_float 
+On symbol : - Op name : reduce Reduce : const -> c_float 
+On symbol : * Op name : reduce Reduce : const -> c_float 
+On symbol : / Op name : reduce Reduce : const -> c_float 
+On symbol : % Op name : reduce Reduce : const -> c_float 
+ACTION Entries
+
+
+Table entry for Item 56 -----
+GOTO Entries
+On symbol : ( Op name : shift goto : 85
+ACTION Entries
+
+
+Table entry for Item 57 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 86
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmt Op name : goto goto : 65
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 66
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 58 -----
+GOTO Entries
+On symbol : $ Op name : reduce Reduce : main_func -> void main ( ) { } 
+ACTION Entries
+
+
+Table entry for Item 59 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 88
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmts Op name : goto goto : 87
+On symbol : stmt Op name : goto goto : 36
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 47
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 60 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 89
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmt Op name : goto goto : 65
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 66
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 61 -----
+GOTO Entries
+On symbol : void Op name : reduce Reduce : func -> void id ( ) { } 
+On symbol : int Op name : reduce Reduce : func -> void id ( ) { } 
+On symbol : float Op name : reduce Reduce : func -> void id ( ) { } 
+ACTION Entries
+
+
+Table entry for Item 62 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 90
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmt Op name : goto goto : 65
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 66
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 63 -----
+GOTO Entries
+On symbol : void Op name : reduce Reduce : func -> data_type id ( params ) { } 
+On symbol : int Op name : reduce Reduce : func -> data_type id ( params ) { } 
+On symbol : float Op name : reduce Reduce : func -> data_type id ( params ) { } 
+ACTION Entries
+
+
+Table entry for Item 64 -----
+GOTO Entries
+On symbol : ; Op name : shift goto : 91
+ACTION Entries
+
+
+Table entry for Item 65 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : stmts -> stmts stmt 
+On symbol : float Op name : reduce Reduce : stmts -> stmts stmt 
+On symbol : } Op name : reduce Reduce : stmts -> stmts stmt 
+On symbol : id Op name : reduce Reduce : stmts -> stmts stmt 
+On symbol : read Op name : reduce Reduce : stmts -> stmts stmt 
+On symbol : write Op name : reduce Reduce : stmts -> stmts stmt 
+On symbol : return Op name : reduce Reduce : stmts -> stmts stmt 
+On symbol : c_int Op name : reduce Reduce : stmts -> stmts stmt 
+On symbol : c_float Op name : reduce Reduce : stmts -> stmts stmt 
+On symbol : if Op name : reduce Reduce : stmts -> stmts stmt 
+ACTION Entries
+
+
+Table entry for Item 66 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : stmts -> stmts if_el 
+On symbol : float Op name : reduce Reduce : stmts -> stmts if_el 
+On symbol : } Op name : reduce Reduce : stmts -> stmts if_el 
+On symbol : id Op name : reduce Reduce : stmts -> stmts if_el 
+On symbol : read Op name : reduce Reduce : stmts -> stmts if_el 
+On symbol : write Op name : reduce Reduce : stmts -> stmts if_el 
+On symbol : return Op name : reduce Reduce : stmts -> stmts if_el 
+On symbol : c_int Op name : reduce Reduce : stmts -> stmts if_el 
+On symbol : c_float Op name : reduce Reduce : stmts -> stmts if_el 
+On symbol : if Op name : reduce Reduce : stmts -> stmts if_el 
+ACTION Entries
+
+
+Table entry for Item 67 -----
+GOTO Entries
+On symbol : void Op name : reduce Reduce : func -> data_type id ( ) { stmts } 
+On symbol : int Op name : reduce Reduce : func -> data_type id ( ) { stmts } 
+On symbol : float Op name : reduce Reduce : func -> data_type id ( ) { stmts } 
+ACTION Entries
+
+
+Table entry for Item 68 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : norm -> io ; 
+On symbol : float Op name : reduce Reduce : norm -> io ; 
+On symbol : } Op name : reduce Reduce : norm -> io ; 
+On symbol : id Op name : reduce Reduce : norm -> io ; 
+On symbol : read Op name : reduce Reduce : norm -> io ; 
+On symbol : write Op name : reduce Reduce : norm -> io ; 
+On symbol : return Op name : reduce Reduce : norm -> io ; 
+On symbol : c_int Op name : reduce Reduce : norm -> io ; 
+On symbol : c_float Op name : reduce Reduce : norm -> io ; 
+On symbol : if Op name : reduce Reduce : norm -> io ; 
+ACTION Entries
+
+
+Table entry for Item 69 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : norm -> ret ; 
+On symbol : float Op name : reduce Reduce : norm -> ret ; 
+On symbol : } Op name : reduce Reduce : norm -> ret ; 
+On symbol : id Op name : reduce Reduce : norm -> ret ; 
+On symbol : read Op name : reduce Reduce : norm -> ret ; 
+On symbol : write Op name : reduce Reduce : norm -> ret ; 
+On symbol : return Op name : reduce Reduce : norm -> ret ; 
+On symbol : c_int Op name : reduce Reduce : norm -> ret ; 
+On symbol : c_float Op name : reduce Reduce : norm -> ret ; 
+On symbol : if Op name : reduce Reduce : norm -> ret ; 
+ACTION Entries
+
+
+Table entry for Item 70 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : norm -> exp ; 
+On symbol : float Op name : reduce Reduce : norm -> exp ; 
+On symbol : } Op name : reduce Reduce : norm -> exp ; 
+On symbol : id Op name : reduce Reduce : norm -> exp ; 
+On symbol : read Op name : reduce Reduce : norm -> exp ; 
+On symbol : write Op name : reduce Reduce : norm -> exp ; 
+On symbol : return Op name : reduce Reduce : norm -> exp ; 
+On symbol : c_int Op name : reduce Reduce : norm -> exp ; 
+On symbol : c_float Op name : reduce Reduce : norm -> exp ; 
+On symbol : if Op name : reduce Reduce : norm -> exp ; 
+ACTION Entries
+
+
+Table entry for Item 71 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : io -> io_op const 
+ACTION Entries
+
+
+Table entry for Item 72 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : io -> io_op id 
+ACTION Entries
+
+
+Table entry for Item 73 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : const -> c_int 
+ACTION Entries
+
+
+Table entry for Item 74 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : const -> c_float 
+ACTION Entries
+
+
+Table entry for Item 75 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 93
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+ACTION Entries
+On symbol : const Op name : goto goto : 41
+On symbol : T Op name : goto goto : 92
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 76 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 93
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+ACTION Entries
+On symbol : const Op name : goto goto : 41
+On symbol : T Op name : goto goto : 94
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 77 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 93
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+ACTION Entries
+On symbol : const Op name : goto goto : 41
+On symbol : F Op name : goto goto : 95
+On symbol : H Op name : goto goto : 46
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 78 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 93
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+ACTION Entries
+On symbol : const Op name : goto goto : 41
+On symbol : F Op name : goto goto : 96
+On symbol : H Op name : goto goto : 46
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 79 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 93
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+ACTION Entries
+On symbol : const Op name : goto goto : 41
+On symbol : F Op name : goto goto : 97
+On symbol : H Op name : goto goto : 46
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 80 -----
+GOTO Entries
+On symbol : ) Op name : shift goto : 102
+On symbol : id Op name : shift goto : 103
+On symbol : c_int Op name : shift goto : 104
+On symbol : c_float Op name : shift goto : 105
+ACTION Entries
+On symbol : const Op name : goto goto : 98
+On symbol : H Op name : goto goto : 99
+On symbol : func_call Op name : goto goto : 100
+On symbol : args Op name : goto goto : 101
+
+
+Table entry for Item 81 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 93
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+ACTION Entries
+On symbol : const Op name : goto goto : 41
+On symbol : E Op name : goto goto : 106
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 82 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : F -> id ++ 
+On symbol : + Op name : reduce Reduce : F -> id ++ 
+On symbol : - Op name : reduce Reduce : F -> id ++ 
+On symbol : * Op name : reduce Reduce : F -> id ++ 
+On symbol : / Op name : reduce Reduce : F -> id ++ 
+On symbol : % Op name : reduce Reduce : F -> id ++ 
+ACTION Entries
+
+
+Table entry for Item 83 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : ret -> return const 
+ACTION Entries
+
+
+Table entry for Item 84 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : ret -> return id 
+ACTION Entries
+
+
+Table entry for Item 85 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 111
+On symbol : c_int Op name : shift goto : 112
+On symbol : c_float Op name : shift goto : 113
+ACTION Entries
+On symbol : const Op name : goto goto : 107
+On symbol : H Op name : goto goto : 108
+On symbol : B Op name : goto goto : 109
+On symbol : func_call Op name : goto goto : 110
+
+
+Table entry for Item 86 -----
+GOTO Entries
+On symbol : $ Op name : reduce Reduce : main_func -> void main ( ) { stmts } 
+ACTION Entries
+
+
+Table entry for Item 87 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 114
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmt Op name : goto goto : 65
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 66
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 88 -----
+GOTO Entries
+On symbol : void Op name : reduce Reduce : func -> void id ( params ) { } 
+On symbol : int Op name : reduce Reduce : func -> void id ( params ) { } 
+On symbol : float Op name : reduce Reduce : func -> void id ( params ) { } 
+ACTION Entries
+
+
+Table entry for Item 89 -----
+GOTO Entries
+On symbol : void Op name : reduce Reduce : func -> void id ( ) { stmts } 
+On symbol : int Op name : reduce Reduce : func -> void id ( ) { stmts } 
+On symbol : float Op name : reduce Reduce : func -> void id ( ) { stmts } 
+ACTION Entries
+
+
+Table entry for Item 90 -----
+GOTO Entries
+On symbol : void Op name : reduce Reduce : func -> data_type id ( params ) { stmts } 
+On symbol : int Op name : reduce Reduce : func -> data_type id ( params ) { stmts } 
+On symbol : float Op name : reduce Reduce : func -> data_type id ( params ) { stmts } 
+ACTION Entries
+
+
+Table entry for Item 91 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : decl -> data_type id ; 
+On symbol : float Op name : reduce Reduce : decl -> data_type id ; 
+On symbol : } Op name : reduce Reduce : decl -> data_type id ; 
+On symbol : id Op name : reduce Reduce : decl -> data_type id ; 
+On symbol : read Op name : reduce Reduce : decl -> data_type id ; 
+On symbol : write Op name : reduce Reduce : decl -> data_type id ; 
+On symbol : return Op name : reduce Reduce : decl -> data_type id ; 
+On symbol : c_int Op name : reduce Reduce : decl -> data_type id ; 
+On symbol : c_float Op name : reduce Reduce : decl -> data_type id ; 
+On symbol : if Op name : reduce Reduce : decl -> data_type id ; 
+ACTION Entries
+
+
+Table entry for Item 92 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : E -> E + T 
+On symbol : + Op name : reduce Reduce : E -> E + T 
+On symbol : - Op name : reduce Reduce : E -> E + T 
+On symbol : * Op name : shift goto : 77
+On symbol : / Op name : shift goto : 78
+On symbol : % Op name : shift goto : 79
+ACTION Entries
+
+
+Table entry for Item 93 -----
+GOTO Entries
+On symbol : ( Op name : shift goto : 80
+On symbol : ; Op name : reduce Reduce : H -> id 
+On symbol : + Op name : reduce Reduce : H -> id 
+On symbol : - Op name : reduce Reduce : H -> id 
+On symbol : * Op name : reduce Reduce : H -> id 
+On symbol : / Op name : reduce Reduce : H -> id 
+On symbol : % Op name : reduce Reduce : H -> id 
+On symbol : ++ Op name : shift goto : 82
+ACTION Entries
+
+
+Table entry for Item 94 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : E -> E - T 
+On symbol : + Op name : reduce Reduce : E -> E - T 
+On symbol : - Op name : reduce Reduce : E -> E - T 
+On symbol : * Op name : shift goto : 77
+On symbol : / Op name : shift goto : 78
+On symbol : % Op name : shift goto : 79
+ACTION Entries
+
+
+Table entry for Item 95 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : T -> T * F 
+On symbol : + Op name : reduce Reduce : T -> T * F 
+On symbol : - Op name : reduce Reduce : T -> T * F 
+On symbol : * Op name : reduce Reduce : T -> T * F 
+On symbol : / Op name : reduce Reduce : T -> T * F 
+On symbol : % Op name : reduce Reduce : T -> T * F 
+ACTION Entries
+
+
+Table entry for Item 96 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : T -> T / F 
+On symbol : + Op name : reduce Reduce : T -> T / F 
+On symbol : - Op name : reduce Reduce : T -> T / F 
+On symbol : * Op name : reduce Reduce : T -> T / F 
+On symbol : / Op name : reduce Reduce : T -> T / F 
+On symbol : % Op name : reduce Reduce : T -> T / F 
+ACTION Entries
+
+
+Table entry for Item 97 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : T -> T % F 
+On symbol : + Op name : reduce Reduce : T -> T % F 
+On symbol : - Op name : reduce Reduce : T -> T % F 
+On symbol : * Op name : reduce Reduce : T -> T % F 
+On symbol : / Op name : reduce Reduce : T -> T % F 
+On symbol : % Op name : reduce Reduce : T -> T % F 
+ACTION Entries
+
+
+Table entry for Item 98 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : H -> const 
+On symbol : , Op name : reduce Reduce : H -> const 
+ACTION Entries
+
+
+Table entry for Item 99 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : args -> H 
+On symbol : , Op name : reduce Reduce : args -> H 
+ACTION Entries
+
+
+Table entry for Item 100 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : H -> func_call 
+On symbol : , Op name : reduce Reduce : H -> func_call 
+ACTION Entries
+
+
+Table entry for Item 101 -----
+GOTO Entries
+On symbol : ) Op name : shift goto : 115
+On symbol : , Op name : shift goto : 116
+ACTION Entries
+
+
+Table entry for Item 102 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : func_call -> id ( ) 
+On symbol : + Op name : reduce Reduce : func_call -> id ( ) 
+On symbol : - Op name : reduce Reduce : func_call -> id ( ) 
+On symbol : * Op name : reduce Reduce : func_call -> id ( ) 
+On symbol : / Op name : reduce Reduce : func_call -> id ( ) 
+On symbol : % Op name : reduce Reduce : func_call -> id ( ) 
+ACTION Entries
+
+
+Table entry for Item 103 -----
+GOTO Entries
+On symbol : ( Op name : shift goto : 117
+On symbol : ) Op name : reduce Reduce : H -> id 
+On symbol : , Op name : reduce Reduce : H -> id 
+ACTION Entries
+
+
+Table entry for Item 104 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : const -> c_int 
+On symbol : , Op name : reduce Reduce : const -> c_int 
+ACTION Entries
+
+
+Table entry for Item 105 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : const -> c_float 
+On symbol : , Op name : reduce Reduce : const -> c_float 
+ACTION Entries
+
+
+Table entry for Item 106 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : exp -> id = E 
+On symbol : + Op name : shift goto : 75
+On symbol : - Op name : shift goto : 76
+ACTION Entries
+
+
+Table entry for Item 107 -----
+GOTO Entries
+On symbol : < Op name : reduce Reduce : H -> const 
+On symbol : > Op name : reduce Reduce : H -> const 
+On symbol : <= Op name : reduce Reduce : H -> const 
+On symbol : >= Op name : reduce Reduce : H -> const 
+On symbol : == Op name : reduce Reduce : H -> const 
+ACTION Entries
+
+
+Table entry for Item 108 -----
+GOTO Entries
+On symbol : < Op name : shift goto : 119
+On symbol : > Op name : shift goto : 120
+On symbol : <= Op name : shift goto : 121
+On symbol : >= Op name : shift goto : 122
+On symbol : == Op name : shift goto : 123
+ACTION Entries
+On symbol : bool_op Op name : goto goto : 118
+
+
+Table entry for Item 109 -----
+GOTO Entries
+On symbol : ) Op name : shift goto : 124
+ACTION Entries
+
+
+Table entry for Item 110 -----
+GOTO Entries
+On symbol : < Op name : reduce Reduce : H -> func_call 
+On symbol : > Op name : reduce Reduce : H -> func_call 
+On symbol : <= Op name : reduce Reduce : H -> func_call 
+On symbol : >= Op name : reduce Reduce : H -> func_call 
+On symbol : == Op name : reduce Reduce : H -> func_call 
+ACTION Entries
+
+
+Table entry for Item 111 -----
+GOTO Entries
+On symbol : ( Op name : shift goto : 125
+On symbol : < Op name : reduce Reduce : H -> id 
+On symbol : > Op name : reduce Reduce : H -> id 
+On symbol : <= Op name : reduce Reduce : H -> id 
+On symbol : >= Op name : reduce Reduce : H -> id 
+On symbol : == Op name : reduce Reduce : H -> id 
+ACTION Entries
+
+
+Table entry for Item 112 -----
+GOTO Entries
+On symbol : < Op name : reduce Reduce : const -> c_int 
+On symbol : > Op name : reduce Reduce : const -> c_int 
+On symbol : <= Op name : reduce Reduce : const -> c_int 
+On symbol : >= Op name : reduce Reduce : const -> c_int 
+On symbol : == Op name : reduce Reduce : const -> c_int 
+ACTION Entries
+
+
+Table entry for Item 113 -----
+GOTO Entries
+On symbol : < Op name : reduce Reduce : const -> c_float 
+On symbol : > Op name : reduce Reduce : const -> c_float 
+On symbol : <= Op name : reduce Reduce : const -> c_float 
+On symbol : >= Op name : reduce Reduce : const -> c_float 
+On symbol : == Op name : reduce Reduce : const -> c_float 
+ACTION Entries
+
+
+Table entry for Item 114 -----
+GOTO Entries
+On symbol : void Op name : reduce Reduce : func -> void id ( params ) { stmts } 
+On symbol : int Op name : reduce Reduce : func -> void id ( params ) { stmts } 
+On symbol : float Op name : reduce Reduce : func -> void id ( params ) { stmts } 
+ACTION Entries
+
+
+Table entry for Item 115 -----
+GOTO Entries
+On symbol : ; Op name : reduce Reduce : func_call -> id ( args ) 
+On symbol : + Op name : reduce Reduce : func_call -> id ( args ) 
+On symbol : - Op name : reduce Reduce : func_call -> id ( args ) 
+On symbol : * Op name : reduce Reduce : func_call -> id ( args ) 
+On symbol : / Op name : reduce Reduce : func_call -> id ( args ) 
+On symbol : % Op name : reduce Reduce : func_call -> id ( args ) 
+ACTION Entries
+
+
+Table entry for Item 116 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 103
+On symbol : c_int Op name : shift goto : 104
+On symbol : c_float Op name : shift goto : 105
+ACTION Entries
+On symbol : const Op name : goto goto : 98
+On symbol : H Op name : goto goto : 126
+On symbol : func_call Op name : goto goto : 100
+
+
+Table entry for Item 117 -----
+GOTO Entries
+On symbol : ) Op name : shift goto : 128
+On symbol : id Op name : shift goto : 103
+On symbol : c_int Op name : shift goto : 104
+On symbol : c_float Op name : shift goto : 105
+ACTION Entries
+On symbol : const Op name : goto goto : 98
+On symbol : H Op name : goto goto : 99
+On symbol : func_call Op name : goto goto : 100
+On symbol : args Op name : goto goto : 127
+
+
+Table entry for Item 118 -----
+GOTO Entries
+On symbol : id Op name : shift goto : 132
+On symbol : c_int Op name : shift goto : 133
+On symbol : c_float Op name : shift goto : 134
+ACTION Entries
+On symbol : const Op name : goto goto : 129
+On symbol : H Op name : goto goto : 130
+On symbol : func_call Op name : goto goto : 131
+
+
+Table entry for Item 119 -----
+GOTO Entries
+On symbol : id Op name : reduce Reduce : bool_op -> < 
+On symbol : c_int Op name : reduce Reduce : bool_op -> < 
+On symbol : c_float Op name : reduce Reduce : bool_op -> < 
+ACTION Entries
+
+
+Table entry for Item 120 -----
+GOTO Entries
+On symbol : id Op name : reduce Reduce : bool_op -> > 
+On symbol : c_int Op name : reduce Reduce : bool_op -> > 
+On symbol : c_float Op name : reduce Reduce : bool_op -> > 
+ACTION Entries
+
+
+Table entry for Item 121 -----
+GOTO Entries
+On symbol : id Op name : reduce Reduce : bool_op -> <= 
+On symbol : c_int Op name : reduce Reduce : bool_op -> <= 
+On symbol : c_float Op name : reduce Reduce : bool_op -> <= 
+ACTION Entries
+
+
+Table entry for Item 122 -----
+GOTO Entries
+On symbol : id Op name : reduce Reduce : bool_op -> >= 
+On symbol : c_int Op name : reduce Reduce : bool_op -> >= 
+On symbol : c_float Op name : reduce Reduce : bool_op -> >= 
+ACTION Entries
+
+
+Table entry for Item 123 -----
+GOTO Entries
+On symbol : id Op name : reduce Reduce : bool_op -> == 
+On symbol : c_int Op name : reduce Reduce : bool_op -> == 
+On symbol : c_float Op name : reduce Reduce : bool_op -> == 
+ACTION Entries
+
+
+Table entry for Item 124 -----
+GOTO Entries
+On symbol : { Op name : shift goto : 135
+ACTION Entries
+
+
+Table entry for Item 125 -----
+GOTO Entries
+On symbol : ) Op name : shift goto : 137
+On symbol : id Op name : shift goto : 103
+On symbol : c_int Op name : shift goto : 104
+On symbol : c_float Op name : shift goto : 105
+ACTION Entries
+On symbol : const Op name : goto goto : 98
+On symbol : H Op name : goto goto : 99
+On symbol : func_call Op name : goto goto : 100
+On symbol : args Op name : goto goto : 136
+
+
+Table entry for Item 126 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : args -> args , H 
+On symbol : , Op name : reduce Reduce : args -> args , H 
+ACTION Entries
+
+
+Table entry for Item 127 -----
+GOTO Entries
+On symbol : ) Op name : shift goto : 138
+On symbol : , Op name : shift goto : 116
+ACTION Entries
+
+
+Table entry for Item 128 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : func_call -> id ( ) 
+On symbol : , Op name : reduce Reduce : func_call -> id ( ) 
+ACTION Entries
+
+
+Table entry for Item 129 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : H -> const 
+ACTION Entries
+
+
+Table entry for Item 130 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : B -> H bool_op H 
+ACTION Entries
+
+
+Table entry for Item 131 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : H -> func_call 
+ACTION Entries
+
+
+Table entry for Item 132 -----
+GOTO Entries
+On symbol : ( Op name : shift goto : 139
+On symbol : ) Op name : reduce Reduce : H -> id 
+ACTION Entries
+
+
+Table entry for Item 133 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : const -> c_int 
+ACTION Entries
+
+
+Table entry for Item 134 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : const -> c_float 
+ACTION Entries
+
+
+Table entry for Item 135 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 141
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmts Op name : goto goto : 140
+On symbol : stmt Op name : goto goto : 36
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 47
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 136 -----
+GOTO Entries
+On symbol : ) Op name : shift goto : 142
+On symbol : , Op name : shift goto : 116
+ACTION Entries
+
+
+Table entry for Item 137 -----
+GOTO Entries
+On symbol : < Op name : reduce Reduce : func_call -> id ( ) 
+On symbol : > Op name : reduce Reduce : func_call -> id ( ) 
+On symbol : <= Op name : reduce Reduce : func_call -> id ( ) 
+On symbol : >= Op name : reduce Reduce : func_call -> id ( ) 
+On symbol : == Op name : reduce Reduce : func_call -> id ( ) 
+ACTION Entries
+
+
+Table entry for Item 138 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : func_call -> id ( args ) 
+On symbol : , Op name : reduce Reduce : func_call -> id ( args ) 
+ACTION Entries
+
+
+Table entry for Item 139 -----
+GOTO Entries
+On symbol : ) Op name : shift goto : 144
+On symbol : id Op name : shift goto : 103
+On symbol : c_int Op name : shift goto : 104
+On symbol : c_float Op name : shift goto : 105
+ACTION Entries
+On symbol : const Op name : goto goto : 98
+On symbol : H Op name : goto goto : 99
+On symbol : func_call Op name : goto goto : 100
+On symbol : args Op name : goto goto : 143
+
+
+Table entry for Item 140 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 145
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmt Op name : goto goto : 65
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 66
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 141 -----
+GOTO Entries
+On symbol : else Op name : shift goto : 146
+ACTION Entries
+
+
+Table entry for Item 142 -----
+GOTO Entries
+On symbol : < Op name : reduce Reduce : func_call -> id ( args ) 
+On symbol : > Op name : reduce Reduce : func_call -> id ( args ) 
+On symbol : <= Op name : reduce Reduce : func_call -> id ( args ) 
+On symbol : >= Op name : reduce Reduce : func_call -> id ( args ) 
+On symbol : == Op name : reduce Reduce : func_call -> id ( args ) 
+ACTION Entries
+
+
+Table entry for Item 143 -----
+GOTO Entries
+On symbol : ) Op name : shift goto : 147
+On symbol : , Op name : shift goto : 116
+ACTION Entries
+
+
+Table entry for Item 144 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : func_call -> id ( ) 
+ACTION Entries
+
+
+Table entry for Item 145 -----
+GOTO Entries
+On symbol : else Op name : shift goto : 148
+ACTION Entries
+
+
+Table entry for Item 146 -----
+GOTO Entries
+On symbol : { Op name : shift goto : 149
+ACTION Entries
+
+
+Table entry for Item 147 -----
+GOTO Entries
+On symbol : ) Op name : reduce Reduce : func_call -> id ( args ) 
+ACTION Entries
+
+
+Table entry for Item 148 -----
+GOTO Entries
+On symbol : { Op name : shift goto : 150
+ACTION Entries
+
+
+Table entry for Item 149 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 152
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmts Op name : goto goto : 151
+On symbol : stmt Op name : goto goto : 36
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 47
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 150 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 154
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmts Op name : goto goto : 153
+On symbol : stmt Op name : goto goto : 36
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 47
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 151 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 155
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmt Op name : goto goto : 65
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 66
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 152 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : if_el -> if ( B ) { } else { } 
+On symbol : float Op name : reduce Reduce : if_el -> if ( B ) { } else { } 
+On symbol : } Op name : reduce Reduce : if_el -> if ( B ) { } else { } 
+On symbol : id Op name : reduce Reduce : if_el -> if ( B ) { } else { } 
+On symbol : read Op name : reduce Reduce : if_el -> if ( B ) { } else { } 
+On symbol : write Op name : reduce Reduce : if_el -> if ( B ) { } else { } 
+On symbol : return Op name : reduce Reduce : if_el -> if ( B ) { } else { } 
+On symbol : c_int Op name : reduce Reduce : if_el -> if ( B ) { } else { } 
+On symbol : c_float Op name : reduce Reduce : if_el -> if ( B ) { } else { } 
+On symbol : if Op name : reduce Reduce : if_el -> if ( B ) { } else { } 
+ACTION Entries
+
+
+Table entry for Item 153 -----
+GOTO Entries
+On symbol : int Op name : shift goto : 7
+On symbol : float Op name : shift goto : 8
+On symbol : } Op name : shift goto : 156
+On symbol : id Op name : shift goto : 50
+On symbol : read Op name : shift goto : 51
+On symbol : write Op name : shift goto : 52
+On symbol : return Op name : shift goto : 53
+On symbol : c_int Op name : shift goto : 54
+On symbol : c_float Op name : shift goto : 55
+On symbol : if Op name : shift goto : 56
+ACTION Entries
+On symbol : data_type Op name : goto goto : 33
+On symbol : decl Op name : goto goto : 34
+On symbol : stmt Op name : goto goto : 65
+On symbol : norm Op name : goto goto : 37
+On symbol : io Op name : goto goto : 38
+On symbol : ret Op name : goto goto : 39
+On symbol : exp Op name : goto goto : 40
+On symbol : const Op name : goto goto : 41
+On symbol : io_op Op name : goto goto : 42
+On symbol : E Op name : goto goto : 43
+On symbol : T Op name : goto goto : 44
+On symbol : F Op name : goto goto : 45
+On symbol : H Op name : goto goto : 46
+On symbol : if_el Op name : goto goto : 66
+On symbol : func_call Op name : goto goto : 48
+
+
+Table entry for Item 154 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { } 
+On symbol : float Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { } 
+On symbol : } Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { } 
+On symbol : id Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { } 
+On symbol : read Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { } 
+On symbol : write Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { } 
+On symbol : return Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { } 
+On symbol : c_int Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { } 
+On symbol : c_float Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { } 
+On symbol : if Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { } 
+ACTION Entries
+
+
+Table entry for Item 155 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : if_el -> if ( B ) { } else { stmts } 
+On symbol : float Op name : reduce Reduce : if_el -> if ( B ) { } else { stmts } 
+On symbol : } Op name : reduce Reduce : if_el -> if ( B ) { } else { stmts } 
+On symbol : id Op name : reduce Reduce : if_el -> if ( B ) { } else { stmts } 
+On symbol : read Op name : reduce Reduce : if_el -> if ( B ) { } else { stmts } 
+On symbol : write Op name : reduce Reduce : if_el -> if ( B ) { } else { stmts } 
+On symbol : return Op name : reduce Reduce : if_el -> if ( B ) { } else { stmts } 
+On symbol : c_int Op name : reduce Reduce : if_el -> if ( B ) { } else { stmts } 
+On symbol : c_float Op name : reduce Reduce : if_el -> if ( B ) { } else { stmts } 
+On symbol : if Op name : reduce Reduce : if_el -> if ( B ) { } else { stmts } 
+ACTION Entries
+
+
+Table entry for Item 156 -----
+GOTO Entries
+On symbol : int Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { stmts } 
+On symbol : float Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { stmts } 
+On symbol : } Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { stmts } 
+On symbol : id Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { stmts } 
+On symbol : read Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { stmts } 
+On symbol : write Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { stmts } 
+On symbol : return Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { stmts } 
+On symbol : c_int Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { stmts } 
+On symbol : c_float Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { stmts } 
+On symbol : if Op name : reduce Reduce : if_el -> if ( B ) { stmts } else { stmts } 
+ACTION Entries

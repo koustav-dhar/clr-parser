@@ -1,0 +1,33 @@
+#
+prog|func|main_func|funcs|data_type|params|param|decl|stmts|stmt|norm|io|ret|exp|const|io_op|E|T|F|H|bool_op|B|if_el|func_call|args
+#
+void|int|float|(|)|{|}|main|id|$|,|;|+|-|*|/|%|<|>|=|read|write|return|c_int|c_float|++|<=|>=|==|if|else
+#
+prog@funcs main_func|main_func
+funcs@funcs func|func
+main_func@void main ( ) { stmts }|void main ( ) { }
+func@void id ( ) { stmts }|data_type id ( ) { stmts }|void id ( params ) { stmts }|data_type id ( params ) { stmts }|void id ( ) { }|data_type id ( ) { }|void id ( params ) { }|data_type id ( params ) { }
+data_type@int|float
+params@params , param|param
+param@data_type id
+stmts@stmts stmt|stmt|stmts if_el|if_el
+stmt@decl|norm
+decl@data_type id ;
+norm@io ;|ret ;|exp ;
+io@io_op id|io_op const
+io_op@read|write
+const@c_int|c_float
+ret@return id|return const
+exp@id = E|E
+E@E + T|E - T|T
+T@T * F|T / F|T % F|F
+F@id ++|H
+H@id|const|func_call
+B@H bool_op H
+bool_op@<|>|==|<=|>=
+if_el@if ( B ) { stmts } else { stmts }|if ( B ) { stmts } else { }|if ( B ) { } else { stmts }|if ( B ) { } else { }
+func_call@id ( args )|id ( )
+args@args , H|H
+#
+prog
+#

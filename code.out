@@ -1,1 +1,1 @@
-void id ( ) { int id ; read id ; write id ; } int main ( ) { float id ; read id ; if ( id > int + float ) { write id ; } return int ; } 
+ void id ( ) { int id ; read id ; write id ; } int main ( ) { float id ; read id ; if ( id > c_int + c_float ) { write id ; } return c_int ; } 
