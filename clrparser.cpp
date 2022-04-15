@@ -117,7 +117,7 @@ class CLR1Parser {
         of.close();
     }
     
-    void parse(string file_name){
+    bool parse(string file_name){
         ifstream inp_file(file_name);
         // stringstream buffer;
         // buffer << inp_file.rdbuf();
@@ -194,6 +194,7 @@ class CLR1Parser {
         else{
             cout << "\nThe input does not belongs to this language\n\n";
         }
+        return flag;
     }
 };
 

@@ -9,13 +9,15 @@ int swap(int a,int b){
 void main(){
     float f;
     int c;
+    int a;
+    int b;
+    int d;
     swap(a,swap(b,c));
     d= c++;
     c++;
     if(a>=2){
         a=swap(a,b);
-        foo(t);
-        foo();
+        
     }
     else{
         b=a;

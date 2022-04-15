@@ -1,0 +1,1 @@
+ int swap ( int a , int b ) { int swap ; swap = a ; a = b ; b = swap ; return c_int ; } void main ( ) { float f ; int c ; swap ( a , swap ( b , c ) ) ; d = c ++ ; c ++ ; if ( a >= c_int ) { a = swap ( a , b ) ; foo ( t ) ; foo ( ) ; } else { b = a ; if ( swap ( c_int , a ) == c_int ) { } else { int c ; c = c_int ; c ++ ; write c ; } } } 
