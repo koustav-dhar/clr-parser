@@ -1,6 +1,7 @@
 //bhai idhar tum symbol table structure likhna
 
 #include <iostream>
+#include <fstream>
 #include <unordered_map>
 #include <vector>
 
@@ -28,6 +29,7 @@ class Attr {
 class SymTab {
     vector<unordered_map<string,Attr>> hashmaps; 
     int currLevel;
+    string ofl;
     
     bool checkAtLevel(string idname, int level) {
         if (level <= currLevel) {
@@ -36,8 +38,11 @@ class SymTab {
         return false;
     }
     public:
-    SymTab() {
+    SymTab(string filename = "symtab.txt") {
         currLevel = -1;
+        ofl = filename;
+        ofstream fout(ofl, ios::out);
+        fout.close();
     }
     void entry() {
         ++currLevel;
@@ -45,7 +50,23 @@ class SymTab {
     }
     void exit() {
         if (currLevel >= 0) {
+            ofstream fout(ofl, ios::app);
             --currLevel;
+            fout << "\n--------Exiting a block: --------\n";
+            fout << "Symbol Table for this block was: \n";
+            for (auto itr : hashmaps[currLevel + 1]) {
+                fout << "Id : " << itr.first << " -> Data Type : " << itr.second.data_type << " -> Type : ";
+                if (itr.second.id_type == 'f') {
+                    fout << "Function -> Parameters : ";
+                    for (auto p : itr.second.params) {
+                        fout << "<" << p.first << ", " << p.second << ">, ";
+                    }
+                    fout << "\n";
+                } else {
+                    fout << "Variable\n";
+                }
+            }
+            fout.close();
             hashmaps.pop_back();
         }
     }
@@ -56,16 +77,15 @@ class SymTab {
         }
         return {false, Attr()};
     }
-    bool insert(string idname, string type, vector<pair<string, string>> params = vector<pair<string, string>>()) {
+    bool insert(string idname, string type, char idtype = 'v', vector<pair<string, string>> params = vector<pair<string, string>>()) {
         if (checkAtLevel(idname, currLevel)) {
             cerr << "Multiple Declarations!!!\n";
             return false;
         } else {
-            cout << "hello " << currLevel << "\n";
-            hashmaps[currLevel][idname] = Attr(type, (params.empty() ? 'v' : 'f'), params);
-            for (auto itr : hashmaps[currLevel]) {
-                cout << itr.first << "\n";
-            }
+            hashmaps[currLevel][idname] = Attr(type, idtype, params);
+            // for (auto itr : hashmaps[currLevel]) {
+            //     cout << itr.first << "\n";
+            // }
             return true;
         }
     }

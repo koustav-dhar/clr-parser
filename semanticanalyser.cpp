@@ -57,9 +57,9 @@ class SemanticAnalyser {
 
         int sz = tokens.size(), i = 0;
 
-        for (int i = 0; i < sz; ++i) {
-            cout << i << " " << tokens[i] << "\n";
-        }
+        // for (int i = 0; i < sz; ++i) {
+        //     cout << i << " " << tokens[i] << "\n";
+        // }
 
         S.entry();
 
@@ -74,13 +74,14 @@ class SemanticAnalyser {
                     i += 3;
                     vector<pair<string, string>> params;
                     while (i + 2 < sz && tokens[i + 2] == ",") {
-                        cout << "hello " << i << "\n";
+                        // cout << "hello " << i << "\n";
                         params.push_back({tokens[i], tokens[i + 1]});
                         i += 3;
                     }
-                    params.push_back({tokens[i], tokens[i + 1]});
-                    cout << "yo\n";
-                    S.insert(func_id, ret_type, params);
+                    if (tokens[i] != ")")
+                        params.push_back({tokens[i], tokens[i + 1]});
+                    // cout << "yo\n";
+                    S.insert(func_id, ret_type, 'f', params);
                     S.entry();
                     for (auto p : params) {
                         S.insert(p.second, p.first);
@@ -130,6 +131,7 @@ class SemanticAnalyser {
                 ++i;
             }
         }
+        S.exit();
         cout << "Finished Semantic Analysis.\n";
     }
 };
