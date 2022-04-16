@@ -1,33 +1,14 @@
-int swap(int a,int b){
-    int swap;
-    swap=a;
-    a=b;
-    b=swap;
-    return 1;
+int sq(int a) {
+    int b;
+    b=a*a;
+    return b;
 }
-
-void main(){
-    float f;
-    int c;
-    swap(a,swap(b,c));
-    d= c++;
-    c++;
-    if(a>=2){
-        a=swap(a,b);
-        foo(t);
-        foo();
-    }
-    else{
-        b=a;
-        if(swap(5,a)==3){
-        }
-        else{
-            int c;
-            c=4;
-            c++;
-            write c;
-        }
+void main() {
+    int x;
+    read x;
+    if (sq(x) > 5) {
+        write 3.14;
+    } else {
+        write x;
     }
 }
-
-

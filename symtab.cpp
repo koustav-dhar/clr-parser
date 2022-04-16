@@ -61,7 +61,11 @@ class SymTab {
             cerr << "Multiple Declarations!!!\n";
             return false;
         } else {
+            cout << "hello " << currLevel << "\n";
             hashmaps[currLevel][idname] = Attr(type, (params.empty() ? 'v' : 'f'), params);
+            for (auto itr : hashmaps[currLevel]) {
+                cout << itr.first << "\n";
+            }
             return true;
         }
     }

@@ -85,7 +85,10 @@ class SemanticAnalyser {
                     for (auto p : params) {
                         S.insert(p.second, p.first);
                     }
-                    i += 4;
+                    if (tokens[i] == ")")
+                        i += 2;
+                    else
+                        i += 4;
                 }
             } else if (tokens[i] == "if") {
                 i += 2;
