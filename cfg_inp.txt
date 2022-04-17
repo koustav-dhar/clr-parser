@@ -1,5 +1,5 @@
 #
-prog|func|main_func|funcs|data_type|params|param|decl|stmts|stmt|norm|io|ret|exp|const|io_op|E|T|F|H|bool_op|B|if_el|func_call|args
+prog|func|main_func|funcs|data_type|params|param|decl|stmts|stmt|norm|io|ret|exp|const|E|T|F|H|bool_op|B|if_el|func_call|args
 #
 void|int|float|(|)|{|}|main|id|$|,|;|+|-|*|/|%|<|>|=|read|write|return|c_int|c_float|++|<=|>=|==|if|else
 #
@@ -14,8 +14,7 @@ stmts@stmts stmt|stmt|stmts if_el|if_el
 stmt@decl|norm
 decl@data_type id ;
 norm@io ;|ret ;|exp ;
-io@io_op id|io_op const
-io_op@read|write
+io@write H|read id
 const@c_int|c_float
 ret@return id|return const
 exp@id = E|E
@@ -23,7 +22,7 @@ E@E + T|E - T|T
 T@T * F|T / F|T % F|F
 F@id ++|H
 H@id|const|func_call
-B@H bool_op H
+B@E bool_op E
 bool_op@<|>|==|<=|>=
 if_el@if ( B ) { stmts } else { stmts }|if ( B ) { stmts } else { }|if ( B ) { } else { stmts }|if ( B ) { } else { }
 func_call@id ( args )|id ( )

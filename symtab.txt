@@ -1,11 +1,6 @@
 
 --------Exiting a block: --------
 Symbol Table for this block was: 
-Id : b -> Data Type : int -> Type : Variable
-Id : a -> Data Type : int -> Type : Variable
-
---------Exiting a block: --------
-Symbol Table for this block was: 
 
 --------Exiting a block: --------
 Symbol Table for this block was: 
@@ -17,4 +12,3 @@ Id : x -> Data Type : int -> Type : Variable
 --------Exiting a block: --------
 Symbol Table for this block was: 
 Id : main -> Data Type : void -> Type : Function -> Parameters : 
-Id : sq -> Data Type : int -> Type : Function -> Parameters : <int, a>, 
