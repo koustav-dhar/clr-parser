@@ -79,7 +79,7 @@ class SymTab {
     }
     bool insert(string idname, string type, char idtype = 'v', vector<pair<string, string>> params = vector<pair<string, string>>()) {
         if (checkAtLevel(idname, currLevel)) {
-            cerr << "Multiple Declarations. " << idname << " is already declared.\n";
+            cerr << "[!] Multiple Declarations. " << idname << " is already declared.\n";
             return false;
         } else {
             hashmaps[currLevel][idname] = Attr(type, idtype, params);

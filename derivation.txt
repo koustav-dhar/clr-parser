@@ -1,40 +1,90 @@
 Derivation steps for input file-----
 
 prog' => prog 
-      => main_func 
-      => void main ( ) { stmts } 
-      => void main ( ) { stmts if_el } 
-      => void main ( ) { stmts if ( B ) { stmts } else { stmts } } 
-      => void main ( ) { stmts if ( B ) { stmts } else { stmt } } 
-      => void main ( ) { stmts if ( B ) { stmts } else { norm } } 
-      => void main ( ) { stmts if ( B ) { stmts } else { io ; } } 
-      => void main ( ) { stmts if ( B ) { stmts } else { write H ; } } 
-      => void main ( ) { stmts if ( B ) { stmts } else { write id ; } } 
-      => void main ( ) { stmts if ( B ) { stmt } else { write id ; } } 
-      => void main ( ) { stmts if ( B ) { norm } else { write id ; } } 
-      => void main ( ) { stmts if ( B ) { io ; } else { write id ; } } 
-      => void main ( ) { stmts if ( B ) { write H ; } else { write id ; } } 
-      => void main ( ) { stmts if ( B ) { write const ; } else { write id ; } } 
-      => void main ( ) { stmts if ( B ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E bool_op E ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E bool_op T ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E bool_op F ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E bool_op H ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E bool_op const ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E bool_op c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( T > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( F > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts stmt if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts norm if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts io ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts stmt read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts norm read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts io ; read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts read id ; read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmt read id ; read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { decl read id ; read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { data_type id ; read id ; read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { int id ; read id ; read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
+      => funcs main_func 
+      => funcs void main ( ) { stmts } 
+      => funcs void main ( ) { stmts if_el } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmt } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { norm } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { io ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { write H ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts stmt } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts norm } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts io ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts write H ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts write const ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts stmt write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts decl write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts data_type id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts stmt int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts norm int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts io ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { stmt read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { decl read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { data_type id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( B ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( E bool_op E ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( E bool_op T ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( E bool_op F ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( E bool_op H ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( E bool_op const ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( E bool_op c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( E > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( T > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( F > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( H > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( func_call > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts stmt if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts norm if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts io ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts stmt read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts norm read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts exp ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts id = E ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts id = T ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts id = F ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts id = H ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts id = func_call ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts id = id ( args ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts id = id ( H ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts id = id ( func_call ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts id = id ( id ( args ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts id = id ( id ( H ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts id = id ( id ( const ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmts id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { stmt id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { decl id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { data_type id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => funcs void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => func void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts stmt } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts norm } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts ret ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts stmt return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts norm return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts exp ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts id = E ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts id = T ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts id = T * F ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts id = T * H ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts id = T * id ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts id = F * id ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts id = H * id ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmts id = id * id ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { stmt id = id * id ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { decl id = id * id ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { data_type id ; id = id * id ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( params ) { int id ; id = id * id ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( param ) { int id ; id = id * id ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( data_type id ) { int id ; id = id * id ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => data_type id ( int id ) { int id ; id = id * id ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
+      => int id ( int id ) { int id ; id = id * id ; return id ; } void main ( ) { int id ; id = id ( id ( c_int ) ) ; read id ; if ( id ( ) > c_int ) { int id ; read id ; int id ; write c_float ; } else { write id ; } } 
