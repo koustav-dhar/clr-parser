@@ -1,1 +1,1 @@
- int sq ( int a ) { int b ; b = a * a ; return b ; } void main ( ) { int x ; read x ; if ( sq ( x ) > c_int ) { write c_float ; } else { write x ; } } 
+ int sq ( int a ) { int b ; b = a * a ; return b ; } void main ( ) { int x ; x = sq ( sq ( c_int ) ) ; read y ; if ( sq ( ) > c_int ) { int x ; read x ; int x ; write c_float ; } else { write x ; } } 

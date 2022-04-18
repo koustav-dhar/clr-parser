@@ -5,8 +5,12 @@ int sq(int a) {
 }
 void main() {
     int x;
-    read x;
-    if (sq(x) > 5) {
+    x=sq(sq(5));
+    read y;
+    if (sq() > 5) {
+        int x;
+        read x;
+        int x;
         write 3.14;
     } else {
         write x;
