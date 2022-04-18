@@ -64,7 +64,7 @@ class SemanticAnalyser {
         S.entry();
 
         while (i < sz) {
-            cout << i << " " << sz << " " << tokens[i] << "\n";
+            // cout << i << " " << sz << " " << tokens[i] << "\n";
             if (tokens[i] == "int" || tokens[i] == "float" || tokens[i] == "void") {
                 if (i + 2 < sz && tokens[i + 2] == ";") {   // declaration
                     S.insert(tokens[i + 1], tokens[i]);
@@ -118,7 +118,7 @@ class SemanticAnalyser {
             } else if (keywords.find(tokens[i]) == keywords.end()) {
                 pair<bool, Attr> val = S.lookup(tokens[i]);
                 if (val.first == false) {
-                    cerr << i << "\n";
+                    // cerr << i << "\n";
                     cerr << "Undeclared identifier " << tokens[i] <<  " used.\n";
                 } else if (val.second.id_type == 'f') {
                     string func_name = tokens[i];
