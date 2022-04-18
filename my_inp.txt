@@ -1,8 +1,16 @@
+int sq(int a) {
+    int b;
+    b=a*a;
+    return b;
+}
 void main() {
     int x;
-    read x;
+    x=sq(sq(5));
     read y;
-    if (x++ > 5) {
+    if (sq() > 5) {
+        int x;
+        read x;
+        int x;
         write 3.14;
     } else {
         write x;

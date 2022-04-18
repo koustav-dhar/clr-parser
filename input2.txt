@@ -1,10 +1,19 @@
-%
-S,C
-%
-c,d,$
-%
-S-C C
-C-c C|d
-%
+#
+S|Program|Construct|Block|Bool|List|Stat|Text|Expr|Dec|Number
+#
+void|main|(|)|opbrk|clbrk|while|;|incr|decr|eq|types|relopt|+|min|id|digit|float
+#
+S@void main ( ) opbrk Program clbrk
+Program@Construct Program|Construct
+Construct@Block|while ( Bool ) Block
+Block@opbrk List clbrk|List
+List@Stat|List Stat
+Stat@;|Text incr|Text decr|incr Text|decr Text|Text eq Expr ;|Dec eq Expr;
+Dec@types Text
+Bool@Expr relopt Expr
+Expr@( Expr )|Expr + Expr|Expr min Expr|Text|Number|min Number
+Text@id
+Number@digit|float
+#
 S
-%
+#

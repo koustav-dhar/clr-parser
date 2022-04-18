@@ -1,1 +1,1 @@
- void main ( ) { int id ; read id ; read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
+ int id ( int id , int id ) { int id ; id = id ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 

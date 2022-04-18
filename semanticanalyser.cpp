@@ -50,7 +50,7 @@ class SemanticAnalyser {
         }
         string str; 
         getline(fin, str);
-        cout << str << "\n";
+        // cout << str << "\n";
         tokenize(str);
 
         unordered_set<string> keywords = {"void", "int", "float", "(", ")", "{", "}", "main", "id", "$", ",", ";", "+", "-", "*", "/", "%", "<", ">", "=", "read", "write", "return", "c_int", "c_float", "++","<=", ">=", "==", "if", "else"};
@@ -61,8 +61,8 @@ class SemanticAnalyser {
         //     cout << i << " " << tokens[i] << "\n";
         // }
 
+        cout << "Starting Semantic Analysis.\n\n";
         S.entry();
-
         while (i < sz) {
             // cout << i << " " << sz << " " << tokens[i] << "\n";
             if (tokens[i] == "int" || tokens[i] == "float" || tokens[i] == "void") {
@@ -97,11 +97,11 @@ class SemanticAnalyser {
                     if (keywords.find(tokens[i]) == keywords.end()) {
                         pair<bool, Attr> val = S.lookup(tokens[i]);
                         if (val.first == false) {
-                            cerr << "Undeclared identifier " << tokens[i] << " used.\n";
+                            cerr << "[!] Undeclared identifier " << tokens[i] << " used.\n";
                         } else if (val.second.id_type == 'f') {
                             string func_name = tokens[i];
                             if (functionCallCheck(i, val.second, keywords) == false) {
-                                cerr << "Incorrect call of function " << func_name << " .\n";
+                                cerr << "[!] Incorrect call of function " << func_name << " .\n";
                             }
                         }
                     }
@@ -119,11 +119,11 @@ class SemanticAnalyser {
                 pair<bool, Attr> val = S.lookup(tokens[i]);
                 if (val.first == false) {
                     // cerr << i << "\n";
-                    cerr << "Undeclared identifier " << tokens[i] <<  " used.\n";
+                    cerr << "[!] Undeclared identifier " << tokens[i] <<  " used.\n";
                 } else if (val.second.id_type == 'f') {
                     string func_name = tokens[i];
                     if (functionCallCheck(i, val.second, keywords) == false) {
-                        cerr << "Incorrect call of function " << func_name << " .\n";
+                        cerr << "[!] Incorrect call of function " << func_name << " .\n";
                     }
                 }
                 ++i;
@@ -132,6 +132,6 @@ class SemanticAnalyser {
             }
         }
         S.exit();
-        cout << "Finished Semantic Analysis.\n";
+        cout << "\nFinished Semantic Analysis.\n\n";
     }
 };

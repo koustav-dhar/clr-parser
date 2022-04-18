@@ -1,14 +1,32 @@
 
 --------Exiting a block: --------
 Symbol Table for this block was: 
+Id : swap -> Data Type : int -> Type : Variable
+Id : b -> Data Type : int -> Type : Variable
+Id : a -> Data Type : int -> Type : Variable
 
 --------Exiting a block: --------
 Symbol Table for this block was: 
 
 --------Exiting a block: --------
 Symbol Table for this block was: 
-Id : x -> Data Type : int -> Type : Variable
+
+--------Exiting a block: --------
+Symbol Table for this block was: 
+Id : c -> Data Type : int -> Type : Variable
+
+--------Exiting a block: --------
+Symbol Table for this block was: 
+
+--------Exiting a block: --------
+Symbol Table for this block was: 
+Id : b -> Data Type : int -> Type : Variable
+Id : d -> Data Type : int -> Type : Variable
+Id : a -> Data Type : int -> Type : Variable
+Id : c -> Data Type : int -> Type : Variable
+Id : f -> Data Type : float -> Type : Variable
 
 --------Exiting a block: --------
 Symbol Table for this block was: 
 Id : main -> Data Type : void -> Type : Function -> Parameters : 
+Id : swap -> Data Type : int -> Type : Function -> Parameters : <int, a>, <int, b>, 

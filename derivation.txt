@@ -1,40 +1,177 @@
 Derivation steps for input file-----
 
 prog' => prog 
-      => main_func 
-      => void main ( ) { stmts } 
-      => void main ( ) { stmts if_el } 
-      => void main ( ) { stmts if ( B ) { stmts } else { stmts } } 
-      => void main ( ) { stmts if ( B ) { stmts } else { stmt } } 
-      => void main ( ) { stmts if ( B ) { stmts } else { norm } } 
-      => void main ( ) { stmts if ( B ) { stmts } else { io ; } } 
-      => void main ( ) { stmts if ( B ) { stmts } else { write H ; } } 
-      => void main ( ) { stmts if ( B ) { stmts } else { write id ; } } 
-      => void main ( ) { stmts if ( B ) { stmt } else { write id ; } } 
-      => void main ( ) { stmts if ( B ) { norm } else { write id ; } } 
-      => void main ( ) { stmts if ( B ) { io ; } else { write id ; } } 
-      => void main ( ) { stmts if ( B ) { write H ; } else { write id ; } } 
-      => void main ( ) { stmts if ( B ) { write const ; } else { write id ; } } 
-      => void main ( ) { stmts if ( B ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E bool_op E ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E bool_op T ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E bool_op F ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E bool_op H ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E bool_op const ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E bool_op c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( E > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( T > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( F > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts stmt if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts norm if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts io ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts stmt read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts norm read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts io ; read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmts read id ; read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { stmt read id ; read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { decl read id ; read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { data_type id ; read id ; read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
-      => void main ( ) { int id ; read id ; read id ; if ( id ++ > c_int ) { write c_float ; } else { write id ; } } 
+      => funcs main_func 
+      => funcs void main ( ) { stmts } 
+      => funcs void main ( ) { stmts if_el } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if_el } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts stmt } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts norm } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts io ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts write H ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts stmt write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts norm write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts exp ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts E ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts T ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts F ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts stmt id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts norm id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts exp ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts id = E ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts id = T ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts id = F ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts id = H ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts id = const ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmts id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { stmt id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { decl id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { data_type id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( B ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( E bool_op E ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( E bool_op T ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( E bool_op F ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( E bool_op H ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( E bool_op const ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( E bool_op c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( E == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( T == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( F == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( H == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( func_call == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( id ( args ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( id ( args , H ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( id ( args , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( id ( H , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( id ( const , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmts if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { stmt if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { norm if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { exp ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { id = E ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { id = T ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { id = F ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { id = H ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmts } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { stmt } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { norm } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { exp ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { id = E ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { id = T ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { id = F ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { id = H ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { id = func_call ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { id = id ( args ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { id = id ( args , H ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { id = id ( args , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { id = id ( H , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( B ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( E bool_op E ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( E bool_op T ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( E bool_op F ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( E bool_op H ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( E bool_op const ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( E bool_op c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( E >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( T >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( F >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( H >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts stmt if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts norm if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts exp ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts E ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts T ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts F ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts stmt id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts norm id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts exp ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id = E ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id = T ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id = F ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts stmt id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts norm id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts exp ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts E ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts T ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts F ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts H ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts func_call ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id ( args ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id ( args , H ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id ( args , func_call ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id ( args , id ( args ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id ( args , id ( args , H ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id ( args , id ( args , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id ( args , id ( H , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id ( args , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id ( H , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts stmt id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts decl id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts data_type id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts stmt int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts decl int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts data_type id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts stmt int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts decl int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts data_type id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts stmt int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts decl int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts data_type id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmts int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { stmt int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { decl int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { data_type id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => funcs void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => func void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts stmt } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts norm } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts ret ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts return const ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts stmt return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts norm return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts exp ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = E ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = T ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = F ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = H ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts stmt id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts norm id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts exp ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = E ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = T ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = F ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = H ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts stmt id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts norm id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts exp ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = E ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = T ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = F ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = H ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmts id = id ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { stmt id = id ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { decl id = id ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { data_type id ; id = id ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params ) { int id ; id = id ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params , param ) { int id ; id = id ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params , data_type id ) { int id ; id = id ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( params , int id ) { int id ; id = id ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( param , int id ) { int id ; id = id ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( data_type id , int id ) { int id ; id = id ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => data_type id ( int id , int id ) { int id ; id = id ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
+      => int id ( int id , int id ) { int id ; id = id ; id = id ; id = id ; return c_int ; } void main ( ) { float id ; int id ; int id ; int id ; int id ; id ( id , id ( id , id ) ) ; id = id ++ ; id ++ ; if ( id >= c_int ) { id = id ( id , id ) ; } else { id = id ; if ( id ( c_int , id ) == c_int ) { } else { int id ; id = c_int ; id ++ ; write id ; } } } 
