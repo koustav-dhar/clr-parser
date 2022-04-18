@@ -135,6 +135,7 @@ class CLR1Parser {
         }
         tokens.push_back("$");
 
+        stack<pair<string, vector<string>>> applied_rules;
         // cout <<"Hello here : " << tokens.size() << "\n";
         int curr_index = 0;
         while(curr_index < tokens.size()){
@@ -145,7 +146,7 @@ class CLR1Parser {
             }
 
             if(parsing_table[state_stack.top()].find(tokens[curr_index]) == parsing_table[state_stack.top()].end()){
-                cout << "Top : " << state_stack.top() << "Current token : " << tokens[curr_index] << "Can't find stack top symbol for current token\n";
+                cout << "Top : " << state_stack.top() << " Current token : " << tokens[curr_index] << " Can't find stack top symbol for current token\n";
                 break;
             }
             else{
@@ -158,11 +159,12 @@ class CLR1Parser {
                 }
                 else if(te.op_type == "reduce"){
                     // cout << "Top initially : " << state_stack.top() << "\n";
-                    cout << "Rule : " << te.reducing_rule.first << " -> ";
-                    for(string curr : te.reducing_rule.second){
-                        cout << curr << " ";
-                    }
-                    cout << "\n";
+                    // cout << "Rule : " << te.reducing_rule.first << " -> ";
+                    // for(string curr : te.reducing_rule.second){
+                    //     cout << curr << " ";
+                    // }
+                    // cout << "\n";
+                    applied_rules.push(te.reducing_rule);
                     
                     int size = te.reducing_rule.second.size();
                     for(int i=0; i<size; i++){
@@ -189,12 +191,61 @@ class CLR1Parser {
         // cout << "Stack top : " << pruning_stack.top() << "\n";
 
         if(flag){
-            cout << "\nThe input belongs to this language\n\n";
+            cout << "\nThe input belongs to this language (Syntactically correct)\n\n";
+            print_derivation("derivation.txt", applied_rules);
         }
         else{
-            cout << "\nThe input does not belongs to this language\n\n";
+            cout << "\nThe input does not belongs to this language (Syntactically incorrect)\n\n";
         }
         return flag;
+    }
+
+    void print_derivation(string file_name, stack<pair<string, vector<string>>> applied_rules){
+        ofstream of(file_name);
+        if(!of.is_open()){
+            cout << "Couldn't open file : " << file_name << "\n";
+            return;
+        }
+
+        of << "Derivation steps for input file-----\n\n";
+
+        pair<string, vector<string>> curr_rule = applied_rules.top();
+        of << curr_rule.first;
+        vector<string> rhs = curr_rule.second;
+        print_rhs(of, rhs);
+        pair<string, vector<string>> prev_rule = curr_rule;
+        applied_rules.pop();
+        while(!applied_rules.empty()){
+            of << "     ";
+            curr_rule = applied_rules.top();
+            vector<string> new_rhs;
+            int index = rhs.size() - 1;
+            while(index>=0){
+                if(rhs[index] == curr_rule.first)
+                    break;
+                index--;
+            }
+            for(int i=0;i<index;i++){
+                new_rhs.push_back(rhs[i]);
+            }
+            for(string curr : curr_rule.second){
+                new_rhs.push_back(curr);
+            }
+            for(int i=index+1;i<rhs.size();i++){
+                new_rhs.push_back(rhs[i]);
+            }
+            rhs = new_rhs;
+            print_rhs(of,rhs);
+            applied_rules.pop();
+        }
+    }
+
+    void print_rhs(ofstream &of, vector<string> rhs){
+        of << " => ";
+        for(string curr : rhs){
+            of << curr << " ";
+        }
+        of << "\n";
     }
 };
 

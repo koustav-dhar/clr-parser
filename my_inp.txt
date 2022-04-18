@@ -1,16 +1,17 @@
-int sq(int a) {
-    int b;
-    b=a*a;
-    return b;
-}
 void main() {
     int x;
+<<<<<<< HEAD
     x=sq(sq(5));
     read y;
     if (sq() > 5) {
         int x;
         read x;
         int x;
+=======
+    read x;
+    read y;
+    if (x++ > 5) {
+>>>>>>> 4e057070005983802d4d05e7772fc9ba3f472e52
         write 3.14;
     } else {
         write x;

@@ -23,7 +23,7 @@ class FirstSetBuilder{
         for (string nonterminal : G.non_terminals) {
             buildFirstSet(G, nonterminal);
         }
-        // showFirstSet();
+        showFirstSet("first_set.txt");
     }
 
     void buildFirstSet(Grammar G, string nonterminal) {
@@ -52,13 +52,20 @@ class FirstSetBuilder{
         firstSetBuilt[nonterminal] = true;
     }
 
-    void showFirstSet() {
+    void showFirstSet(string file_name) {
+        ofstream of(file_name);
+        if(!of.is_open()){
+            cout << "Couldn't open file : " << file_name << "\n";
+            return;
+        }
+
+        of << "First Set of terminals and non-terminals------\n";
         for (auto itr : firstSet) {
-            cout << itr.first << " : ";
+            of << itr.first << " : ";
             for (string s : itr.second) {
-                cout << s << ", ";
+                of << s << ", ";
             } 
-            cout << "\n";
+            of << "\n";
         }
     }
 

@@ -171,14 +171,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -215,14 +213,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -263,14 +259,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -307,14 +301,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -357,14 +349,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -401,69 +391,70 @@ Item No. : 41 -----
 H -> const 	lookahead : / - % * + ; 
 
 Item No. : 42 -----
-io -> io_op . id 	lookahead : ; 
-io -> io_op . const 	lookahead : ; 
-const -> . c_int 	lookahead : ; 
-const -> . c_float 	lookahead : ; 
-
-Item No. : 43 -----
 exp -> E 	lookahead : ; 
 E -> E . + T 	lookahead : - + ; 
 E -> E . - T 	lookahead : - + ; 
 
-Item No. : 44 -----
+Item No. : 43 -----
 E -> T 	lookahead : - + ; 
 T -> T . * F 	lookahead : / - % * + ; 
 T -> T . / F 	lookahead : / - % * + ; 
 T -> T . % F 	lookahead : / - % * + ; 
 
-Item No. : 45 -----
+Item No. : 44 -----
 T -> F 	lookahead : / - % * + ; 
 
-Item No. : 46 -----
+Item No. : 45 -----
 F -> H 	lookahead : / - % * + ; 
 
-Item No. : 47 -----
+Item No. : 46 -----
 stmts -> if_el 	lookahead : if write return c_float id read float c_int int } 
 
-Item No. : 48 -----
+Item No. : 47 -----
 H -> func_call 	lookahead : / - % * + ; 
 
-Item No. : 49 -----
+Item No. : 48 -----
 func -> data_type id ( ) { } 	lookahead : float int void 
 
-Item No. : 50 -----
+Item No. : 49 -----
 exp -> id . = E 	lookahead : ; 
 F -> id . ++ 	lookahead : / - % * + ; 
 H -> id 	lookahead : / - % * + ; 
 func_call -> id . ( args ) 	lookahead : / - % * + ; 
 func_call -> id . ( ) 	lookahead : / - % * + ; 
 
+Item No. : 50 -----
+io -> read . id 	lookahead : ; 
+
 Item No. : 51 -----
-io_op -> read 	lookahead : c_int c_float id 
+io -> write . H 	lookahead : ; 
+H -> . id 	lookahead : ; 
+H -> . const 	lookahead : ; 
+H -> . func_call 	lookahead : ; 
+const -> . c_int 	lookahead : ; 
+const -> . c_float 	lookahead : ; 
+func_call -> . id ( args ) 	lookahead : ; 
+func_call -> . id ( ) 	lookahead : ; 
 
 Item No. : 52 -----
-io_op -> write 	lookahead : c_int c_float id 
-
-Item No. : 53 -----
 ret -> return . id 	lookahead : ; 
 ret -> return . const 	lookahead : ; 
 const -> . c_int 	lookahead : ; 
 const -> . c_float 	lookahead : ; 
 
-Item No. : 54 -----
+Item No. : 53 -----
 const -> c_int 	lookahead : / - % * + ; 
 
-Item No. : 55 -----
+Item No. : 54 -----
 const -> c_float 	lookahead : / - % * + ; 
 
-Item No. : 56 -----
+Item No. : 55 -----
 if_el -> if . ( B ) { stmts } else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if . ( B ) { stmts } else { } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if . ( B ) { } else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if . ( B ) { } else { } 	lookahead : if int c_int float read id c_float return write } 
 
-Item No. : 57 -----
+Item No. : 56 -----
 main_func -> void main ( ) { stmts . } 	lookahead : $ 
 stmts -> stmts . stmt 	lookahead : if write return c_float id read float c_int int } 
 stmts -> stmts . if_el 	lookahead : if write return c_float id read float c_int int } 
@@ -479,14 +470,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -504,10 +493,10 @@ const -> . c_float 	lookahead : / - % * + ;
 func_call -> . id ( args ) 	lookahead : / - % * + ; 
 func_call -> . id ( ) 	lookahead : / - % * + ; 
 
-Item No. : 58 -----
+Item No. : 57 -----
 main_func -> void main ( ) { } 	lookahead : $ 
 
-Item No. : 59 -----
+Item No. : 58 -----
 func -> void id ( params ) { . stmts } 	lookahead : float int void 
 func -> void id ( params ) { . } 	lookahead : float int void 
 stmts -> . stmts stmt 	lookahead : if write return c_float id read float c_int int } 
@@ -526,14 +515,51 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
+E -> . E + T 	lookahead : - + ; 
+E -> . E - T 	lookahead : - + ; 
+E -> . T 	lookahead : - + ; 
+T -> . T * F 	lookahead : / - % * + ; 
+T -> . T / F 	lookahead : / - % * + ; 
+T -> . T % F 	lookahead : / - % * + ; 
+T -> . F 	lookahead : / - % * + ; 
+F -> . id ++ 	lookahead : / - % * + ; 
+F -> . H 	lookahead : / - % * + ; 
+H -> . id 	lookahead : / - % * + ; 
+H -> . const 	lookahead : / - % * + ; 
+H -> . func_call 	lookahead : / - % * + ; 
+const -> . c_int 	lookahead : / - % * + ; 
+const -> . c_float 	lookahead : / - % * + ; 
+func_call -> . id ( args ) 	lookahead : / - % * + ; 
+func_call -> . id ( ) 	lookahead : / - % * + ; 
+
+Item No. : 59 -----
+func -> void id ( ) { stmts . } 	lookahead : float int void 
+stmts -> stmts . stmt 	lookahead : if write return c_float id read float c_int int } 
+stmts -> stmts . if_el 	lookahead : if write return c_float id read float c_int int } 
+stmt -> . decl 	lookahead : } int c_int float read id c_float return write if 
+stmt -> . norm 	lookahead : } int c_int float read id c_float return write if 
+if_el -> . if ( B ) { stmts } else { stmts } 	lookahead : } int c_int float read id c_float return write if 
+if_el -> . if ( B ) { stmts } else { } 	lookahead : } int c_int float read id c_float return write if 
+if_el -> . if ( B ) { } else { stmts } 	lookahead : } int c_int float read id c_float return write if 
+if_el -> . if ( B ) { } else { } 	lookahead : } int c_int float read id c_float return write if 
+decl -> . data_type id ; 	lookahead : if write return c_float id read float c_int int } 
+norm -> . io ; 	lookahead : if write return c_float id read float c_int int } 
+norm -> . ret ; 	lookahead : if write return c_float id read float c_int int } 
+norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
+data_type -> . int 	lookahead : id 
+data_type -> . float 	lookahead : id 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
+ret -> . return id 	lookahead : ; 
+ret -> . return const 	lookahead : ; 
+exp -> . id = E 	lookahead : ; 
+exp -> . E 	lookahead : ; 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -552,50 +578,9 @@ func_call -> . id ( args ) 	lookahead : / - % * + ;
 func_call -> . id ( ) 	lookahead : / - % * + ; 
 
 Item No. : 60 -----
-func -> void id ( ) { stmts . } 	lookahead : float int void 
-stmts -> stmts . stmt 	lookahead : if write return c_float id read float c_int int } 
-stmts -> stmts . if_el 	lookahead : if write return c_float id read float c_int int } 
-stmt -> . decl 	lookahead : } int c_int float read id c_float return write if 
-stmt -> . norm 	lookahead : } int c_int float read id c_float return write if 
-if_el -> . if ( B ) { stmts } else { stmts } 	lookahead : } int c_int float read id c_float return write if 
-if_el -> . if ( B ) { stmts } else { } 	lookahead : } int c_int float read id c_float return write if 
-if_el -> . if ( B ) { } else { stmts } 	lookahead : } int c_int float read id c_float return write if 
-if_el -> . if ( B ) { } else { } 	lookahead : } int c_int float read id c_float return write if 
-decl -> . data_type id ; 	lookahead : if write return c_float id read float c_int int } 
-norm -> . io ; 	lookahead : if write return c_float id read float c_int int } 
-norm -> . ret ; 	lookahead : if write return c_float id read float c_int int } 
-norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
-data_type -> . int 	lookahead : id 
-data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
-ret -> . return id 	lookahead : ; 
-ret -> . return const 	lookahead : ; 
-exp -> . id = E 	lookahead : ; 
-exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
-E -> . E + T 	lookahead : - + ; 
-E -> . E - T 	lookahead : - + ; 
-E -> . T 	lookahead : - + ; 
-T -> . T * F 	lookahead : / - % * + ; 
-T -> . T / F 	lookahead : / - % * + ; 
-T -> . T % F 	lookahead : / - % * + ; 
-T -> . F 	lookahead : / - % * + ; 
-F -> . id ++ 	lookahead : / - % * + ; 
-F -> . H 	lookahead : / - % * + ; 
-H -> . id 	lookahead : / - % * + ; 
-H -> . const 	lookahead : / - % * + ; 
-H -> . func_call 	lookahead : / - % * + ; 
-const -> . c_int 	lookahead : / - % * + ; 
-const -> . c_float 	lookahead : / - % * + ; 
-func_call -> . id ( args ) 	lookahead : / - % * + ; 
-func_call -> . id ( ) 	lookahead : / - % * + ; 
-
-Item No. : 61 -----
 func -> void id ( ) { } 	lookahead : float int void 
 
-Item No. : 62 -----
+Item No. : 61 -----
 func -> data_type id ( params ) { stmts . } 	lookahead : float int void 
 stmts -> stmts . stmt 	lookahead : if write return c_float id read float c_int int } 
 stmts -> stmts . if_el 	lookahead : if write return c_float id read float c_int int } 
@@ -611,14 +596,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -636,43 +619,31 @@ const -> . c_float 	lookahead : / - % * + ;
 func_call -> . id ( args ) 	lookahead : / - % * + ; 
 func_call -> . id ( ) 	lookahead : / - % * + ; 
 
-Item No. : 63 -----
+Item No. : 62 -----
 func -> data_type id ( params ) { } 	lookahead : float int void 
 
-Item No. : 64 -----
+Item No. : 63 -----
 decl -> data_type id . ; 	lookahead : if write return c_float id read float c_int int } 
 
-Item No. : 65 -----
+Item No. : 64 -----
 stmts -> stmts stmt 	lookahead : if write return c_float id read float c_int int } 
 
-Item No. : 66 -----
+Item No. : 65 -----
 stmts -> stmts if_el 	lookahead : if write return c_float id read float c_int int } 
 
-Item No. : 67 -----
+Item No. : 66 -----
 func -> data_type id ( ) { stmts } 	lookahead : float int void 
 
-Item No. : 68 -----
+Item No. : 67 -----
 norm -> io ; 	lookahead : if write return c_float id read float c_int int } 
 
-Item No. : 69 -----
+Item No. : 68 -----
 norm -> ret ; 	lookahead : if write return c_float id read float c_int int } 
 
-Item No. : 70 -----
+Item No. : 69 -----
 norm -> exp ; 	lookahead : if write return c_float id read float c_int int } 
 
-Item No. : 71 -----
-io -> io_op const 	lookahead : ; 
-
-Item No. : 72 -----
-io -> io_op id 	lookahead : ; 
-
-Item No. : 73 -----
-const -> c_int 	lookahead : ; 
-
-Item No. : 74 -----
-const -> c_float 	lookahead : ; 
-
-Item No. : 75 -----
+Item No. : 70 -----
 E -> E + . T 	lookahead : - + ; 
 T -> . T * F 	lookahead : / ; % * + - 
 T -> . T / F 	lookahead : / ; % * + - 
@@ -688,7 +659,7 @@ const -> . c_float 	lookahead : / - % * + ;
 func_call -> . id ( args ) 	lookahead : / - % * + ; 
 func_call -> . id ( ) 	lookahead : / - % * + ; 
 
-Item No. : 76 -----
+Item No. : 71 -----
 E -> E - . T 	lookahead : - + ; 
 T -> . T * F 	lookahead : / ; % * + - 
 T -> . T / F 	lookahead : / ; % * + - 
@@ -704,7 +675,7 @@ const -> . c_float 	lookahead : / - % * + ;
 func_call -> . id ( args ) 	lookahead : / - % * + ; 
 func_call -> . id ( ) 	lookahead : / - % * + ; 
 
-Item No. : 77 -----
+Item No. : 72 -----
 T -> T * . F 	lookahead : / - % * + ; 
 F -> . id ++ 	lookahead : ; + * % - / 
 F -> . H 	lookahead : ; + * % - / 
@@ -716,7 +687,7 @@ const -> . c_float 	lookahead : ; + * % - /
 func_call -> . id ( args ) 	lookahead : ; + * % - / 
 func_call -> . id ( ) 	lookahead : ; + * % - / 
 
-Item No. : 78 -----
+Item No. : 73 -----
 T -> T / . F 	lookahead : / - % * + ; 
 F -> . id ++ 	lookahead : ; + * % - / 
 F -> . H 	lookahead : ; + * % - / 
@@ -728,7 +699,7 @@ const -> . c_float 	lookahead : ; + * % - /
 func_call -> . id ( args ) 	lookahead : ; + * % - / 
 func_call -> . id ( ) 	lookahead : ; + * % - / 
 
-Item No. : 79 -----
+Item No. : 74 -----
 T -> T % . F 	lookahead : / - % * + ; 
 F -> . id ++ 	lookahead : ; + * % - / 
 F -> . H 	lookahead : ; + * % - / 
@@ -740,7 +711,7 @@ const -> . c_float 	lookahead : ; + * % - /
 func_call -> . id ( args ) 	lookahead : ; + * % - / 
 func_call -> . id ( ) 	lookahead : ; + * % - / 
 
-Item No. : 80 -----
+Item No. : 75 -----
 func_call -> id ( . args ) 	lookahead : / - % * + ; 
 func_call -> id ( . ) 	lookahead : / - % * + ; 
 args -> . args , H 	lookahead : , ) 
@@ -753,7 +724,7 @@ const -> . c_float 	lookahead : , )
 func_call -> . id ( args ) 	lookahead : , ) 
 func_call -> . id ( ) 	lookahead : , ) 
 
-Item No. : 81 -----
+Item No. : 76 -----
 exp -> id = . E 	lookahead : ; 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
@@ -772,33 +743,65 @@ const -> . c_float 	lookahead : / - % * + ;
 func_call -> . id ( args ) 	lookahead : / - % * + ; 
 func_call -> . id ( ) 	lookahead : / - % * + ; 
 
-Item No. : 82 -----
+Item No. : 77 -----
 F -> id ++ 	lookahead : / - % * + ; 
 
+Item No. : 78 -----
+io -> read id 	lookahead : ; 
+
+Item No. : 79 -----
+H -> const 	lookahead : ; 
+
+Item No. : 80 -----
+io -> write H 	lookahead : ; 
+
+Item No. : 81 -----
+H -> func_call 	lookahead : ; 
+
+Item No. : 82 -----
+H -> id 	lookahead : ; 
+func_call -> id . ( args ) 	lookahead : ; 
+func_call -> id . ( ) 	lookahead : ; 
+
 Item No. : 83 -----
-ret -> return const 	lookahead : ; 
+const -> c_int 	lookahead : ; 
 
 Item No. : 84 -----
-ret -> return id 	lookahead : ; 
+const -> c_float 	lookahead : ; 
 
 Item No. : 85 -----
+ret -> return const 	lookahead : ; 
+
+Item No. : 86 -----
+ret -> return id 	lookahead : ; 
+
+Item No. : 87 -----
 if_el -> if ( . B ) { stmts } else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( . B ) { stmts } else { } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( . B ) { } else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( . B ) { } else { } 	lookahead : if int c_int float read id c_float return write } 
-B -> . H bool_op H 	lookahead : ) 
-H -> . id 	lookahead : < == > <= >= 
-H -> . const 	lookahead : < == > <= >= 
-H -> . func_call 	lookahead : < == > <= >= 
-const -> . c_int 	lookahead : >= <= > == < 
-const -> . c_float 	lookahead : >= <= > == < 
-func_call -> . id ( args ) 	lookahead : >= <= > == < 
-func_call -> . id ( ) 	lookahead : >= <= > == < 
+B -> . E bool_op E 	lookahead : ) 
+E -> . E + T 	lookahead : - + < == > <= >= 
+E -> . E - T 	lookahead : - + < == > <= >= 
+E -> . T 	lookahead : - + < == > <= >= 
+T -> . T * F 	lookahead : / - >= <= > % * + == < 
+T -> . T / F 	lookahead : / - >= <= > % * + == < 
+T -> . T % F 	lookahead : / - >= <= > % * + == < 
+T -> . F 	lookahead : / - >= <= > % * + == < 
+F -> . id ++ 	lookahead : / - % * + < == > <= >= 
+F -> . H 	lookahead : / - % * + < == > <= >= 
+H -> . id 	lookahead : / - >= <= > % * + == < 
+H -> . const 	lookahead : / - >= <= > % * + == < 
+H -> . func_call 	lookahead : / - >= <= > % * + == < 
+const -> . c_int 	lookahead : / - % * + < == > <= >= 
+const -> . c_float 	lookahead : / - % * + < == > <= >= 
+func_call -> . id ( args ) 	lookahead : / - % * + < == > <= >= 
+func_call -> . id ( ) 	lookahead : / - % * + < == > <= >= 
 
-Item No. : 86 -----
+Item No. : 88 -----
 main_func -> void main ( ) { stmts } 	lookahead : $ 
 
-Item No. : 87 -----
+Item No. : 89 -----
 func -> void id ( params ) { stmts . } 	lookahead : float int void 
 stmts -> stmts . stmt 	lookahead : if write return c_float id read float c_int int } 
 stmts -> stmts . if_el 	lookahead : if write return c_float id read float c_int int } 
@@ -814,14 +817,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -839,115 +840,143 @@ const -> . c_float 	lookahead : / - % * + ;
 func_call -> . id ( args ) 	lookahead : / - % * + ; 
 func_call -> . id ( ) 	lookahead : / - % * + ; 
 
-Item No. : 88 -----
+Item No. : 90 -----
 func -> void id ( params ) { } 	lookahead : float int void 
 
-Item No. : 89 -----
+Item No. : 91 -----
 func -> void id ( ) { stmts } 	lookahead : float int void 
 
-Item No. : 90 -----
+Item No. : 92 -----
 func -> data_type id ( params ) { stmts } 	lookahead : float int void 
 
-Item No. : 91 -----
+Item No. : 93 -----
 decl -> data_type id ; 	lookahead : if write return c_float id read float c_int int } 
 
-Item No. : 92 -----
+Item No. : 94 -----
 E -> E + T 	lookahead : - + ; 
 T -> T . * F 	lookahead : / ; % * + - 
 T -> T . / F 	lookahead : / ; % * + - 
 T -> T . % F 	lookahead : / ; % * + - 
 
-Item No. : 93 -----
+Item No. : 95 -----
 F -> id . ++ 	lookahead : / - % * + ; 
 H -> id 	lookahead : / ; % * + - 
 func_call -> id . ( args ) 	lookahead : / - % * + ; 
 func_call -> id . ( ) 	lookahead : / - % * + ; 
 
-Item No. : 94 -----
+Item No. : 96 -----
 E -> E - T 	lookahead : - + ; 
 T -> T . * F 	lookahead : / ; % * + - 
 T -> T . / F 	lookahead : / ; % * + - 
 T -> T . % F 	lookahead : / ; % * + - 
 
-Item No. : 95 -----
+Item No. : 97 -----
 T -> T * F 	lookahead : / - % * + ; 
 
-Item No. : 96 -----
+Item No. : 98 -----
 T -> T / F 	lookahead : / - % * + ; 
 
-Item No. : 97 -----
+Item No. : 99 -----
 T -> T % F 	lookahead : / - % * + ; 
 
-Item No. : 98 -----
+Item No. : 100 -----
 H -> const 	lookahead : , ) 
 
-Item No. : 99 -----
+Item No. : 101 -----
 args -> H 	lookahead : , ) 
 
-Item No. : 100 -----
+Item No. : 102 -----
 H -> func_call 	lookahead : , ) 
 
-Item No. : 101 -----
+Item No. : 103 -----
 func_call -> id ( args . ) 	lookahead : / - % * + ; 
 args -> args . , H 	lookahead : , ) 
 
-Item No. : 102 -----
+Item No. : 104 -----
 func_call -> id ( ) 	lookahead : / - % * + ; 
 
-Item No. : 103 -----
+Item No. : 105 -----
 H -> id 	lookahead : , ) 
 func_call -> id . ( args ) 	lookahead : , ) 
 func_call -> id . ( ) 	lookahead : , ) 
 
-Item No. : 104 -----
+Item No. : 106 -----
 const -> c_int 	lookahead : , ) 
 
-Item No. : 105 -----
+Item No. : 107 -----
 const -> c_float 	lookahead : , ) 
 
-Item No. : 106 -----
+Item No. : 108 -----
 exp -> id = E 	lookahead : ; 
 E -> E . + T 	lookahead : - + ; 
 E -> E . - T 	lookahead : - + ; 
 
-Item No. : 107 -----
-H -> const 	lookahead : < == > <= >= 
+Item No. : 109 -----
+func_call -> id ( . args ) 	lookahead : ; 
+func_call -> id ( . ) 	lookahead : ; 
+args -> . args , H 	lookahead : , ) 
+args -> . H 	lookahead : , ) 
+H -> . id 	lookahead : , ) 
+H -> . const 	lookahead : , ) 
+H -> . func_call 	lookahead : , ) 
+const -> . c_int 	lookahead : , ) 
+const -> . c_float 	lookahead : , ) 
+func_call -> . id ( args ) 	lookahead : , ) 
+func_call -> . id ( ) 	lookahead : , ) 
 
-Item No. : 108 -----
-B -> H . bool_op H 	lookahead : ) 
+Item No. : 110 -----
+H -> const 	lookahead : / - >= <= > % * + == < 
+
+Item No. : 111 -----
+B -> E . bool_op E 	lookahead : ) 
+E -> E . + T 	lookahead : - + < == > <= >= 
+E -> E . - T 	lookahead : - + < == > <= >= 
 bool_op -> . < 	lookahead : id c_float c_int 
 bool_op -> . > 	lookahead : id c_float c_int 
 bool_op -> . == 	lookahead : id c_float c_int 
 bool_op -> . <= 	lookahead : id c_float c_int 
 bool_op -> . >= 	lookahead : id c_float c_int 
 
-Item No. : 109 -----
+Item No. : 112 -----
+E -> T 	lookahead : - + < == > <= >= 
+T -> T . * F 	lookahead : / - >= <= > % * + == < 
+T -> T . / F 	lookahead : / - >= <= > % * + == < 
+T -> T . % F 	lookahead : / - >= <= > % * + == < 
+
+Item No. : 113 -----
+T -> F 	lookahead : / - >= <= > % * + == < 
+
+Item No. : 114 -----
+F -> H 	lookahead : / - % * + < == > <= >= 
+
+Item No. : 115 -----
 if_el -> if ( B . ) { stmts } else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B . ) { stmts } else { } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B . ) { } else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B . ) { } else { } 	lookahead : if int c_int float read id c_float return write } 
 
-Item No. : 110 -----
-H -> func_call 	lookahead : < == > <= >= 
+Item No. : 116 -----
+H -> func_call 	lookahead : / - >= <= > % * + == < 
 
-Item No. : 111 -----
-H -> id 	lookahead : < == > <= >= 
-func_call -> id . ( args ) 	lookahead : >= <= > == < 
-func_call -> id . ( ) 	lookahead : >= <= > == < 
+Item No. : 117 -----
+F -> id . ++ 	lookahead : / - % * + < == > <= >= 
+H -> id 	lookahead : / - >= <= > % * + == < 
+func_call -> id . ( args ) 	lookahead : / - % * + < == > <= >= 
+func_call -> id . ( ) 	lookahead : / - % * + < == > <= >= 
 
-Item No. : 112 -----
-const -> c_int 	lookahead : >= <= > == < 
+Item No. : 118 -----
+const -> c_int 	lookahead : / - % * + < == > <= >= 
 
-Item No. : 113 -----
-const -> c_float 	lookahead : >= <= > == < 
+Item No. : 119 -----
+const -> c_float 	lookahead : / - % * + < == > <= >= 
 
-Item No. : 114 -----
+Item No. : 120 -----
 func -> void id ( params ) { stmts } 	lookahead : float int void 
 
-Item No. : 115 -----
+Item No. : 121 -----
 func_call -> id ( args ) 	lookahead : / - % * + ; 
 
-Item No. : 116 -----
+Item No. : 122 -----
 args -> args , . H 	lookahead : , ) 
 H -> . id 	lookahead : ) , 
 H -> . const 	lookahead : ) , 
@@ -957,7 +986,7 @@ const -> . c_float 	lookahead : , )
 func_call -> . id ( args ) 	lookahead : , ) 
 func_call -> . id ( ) 	lookahead : , ) 
 
-Item No. : 117 -----
+Item No. : 123 -----
 func_call -> id ( . args ) 	lookahead : , ) 
 func_call -> id ( . ) 	lookahead : , ) 
 args -> . args , H 	lookahead : , ) 
@@ -970,40 +999,124 @@ const -> . c_float 	lookahead : , )
 func_call -> . id ( args ) 	lookahead : , ) 
 func_call -> . id ( ) 	lookahead : , ) 
 
-Item No. : 118 -----
-B -> H bool_op . H 	lookahead : ) 
-H -> . id 	lookahead : ) 
-H -> . const 	lookahead : ) 
-H -> . func_call 	lookahead : ) 
-const -> . c_int 	lookahead : ) 
-const -> . c_float 	lookahead : ) 
-func_call -> . id ( args ) 	lookahead : ) 
-func_call -> . id ( ) 	lookahead : ) 
+Item No. : 124 -----
+func_call -> id ( args . ) 	lookahead : ; 
+args -> args . , H 	lookahead : , ) 
 
-Item No. : 119 -----
+Item No. : 125 -----
+func_call -> id ( ) 	lookahead : ; 
+
+Item No. : 126 -----
+B -> E bool_op . E 	lookahead : ) 
+E -> . E + T 	lookahead : - + ) 
+E -> . E - T 	lookahead : - + ) 
+E -> . T 	lookahead : - + ) 
+T -> . T * F 	lookahead : / - % * + ) 
+T -> . T / F 	lookahead : / - % * + ) 
+T -> . T % F 	lookahead : / - % * + ) 
+T -> . F 	lookahead : / - % * + ) 
+F -> . id ++ 	lookahead : / - % * + ) 
+F -> . H 	lookahead : / - % * + ) 
+H -> . id 	lookahead : / - % * + ) 
+H -> . const 	lookahead : / - % * + ) 
+H -> . func_call 	lookahead : / - % * + ) 
+const -> . c_int 	lookahead : / - % * + ) 
+const -> . c_float 	lookahead : / - % * + ) 
+func_call -> . id ( args ) 	lookahead : / - % * + ) 
+func_call -> . id ( ) 	lookahead : / - % * + ) 
+
+Item No. : 127 -----
+E -> E + . T 	lookahead : - + < == > <= >= 
+T -> . T * F 	lookahead : / >= <= > % * == < + - 
+T -> . T / F 	lookahead : / >= <= > % * == < + - 
+T -> . T % F 	lookahead : / >= <= > % * == < + - 
+T -> . F 	lookahead : / >= <= > % * == < + - 
+F -> . id ++ 	lookahead : / - % * + < == > <= >= 
+F -> . H 	lookahead : / - % * + < == > <= >= 
+H -> . id 	lookahead : / >= <= > % * == < + - 
+H -> . const 	lookahead : / >= <= > % * == < + - 
+H -> . func_call 	lookahead : / >= <= > % * == < + - 
+const -> . c_int 	lookahead : / - % * + < == > <= >= 
+const -> . c_float 	lookahead : / - % * + < == > <= >= 
+func_call -> . id ( args ) 	lookahead : / - % * + < == > <= >= 
+func_call -> . id ( ) 	lookahead : / - % * + < == > <= >= 
+
+Item No. : 128 -----
+E -> E - . T 	lookahead : - + < == > <= >= 
+T -> . T * F 	lookahead : / >= <= > % * == < + - 
+T -> . T / F 	lookahead : / >= <= > % * == < + - 
+T -> . T % F 	lookahead : / >= <= > % * == < + - 
+T -> . F 	lookahead : / >= <= > % * == < + - 
+F -> . id ++ 	lookahead : / - % * + < == > <= >= 
+F -> . H 	lookahead : / - % * + < == > <= >= 
+H -> . id 	lookahead : / >= <= > % * == < + - 
+H -> . const 	lookahead : / >= <= > % * == < + - 
+H -> . func_call 	lookahead : / >= <= > % * == < + - 
+const -> . c_int 	lookahead : / - % * + < == > <= >= 
+const -> . c_float 	lookahead : / - % * + < == > <= >= 
+func_call -> . id ( args ) 	lookahead : / - % * + < == > <= >= 
+func_call -> . id ( ) 	lookahead : / - % * + < == > <= >= 
+
+Item No. : 129 -----
 bool_op -> < 	lookahead : id c_float c_int 
 
-Item No. : 120 -----
+Item No. : 130 -----
 bool_op -> > 	lookahead : id c_float c_int 
 
-Item No. : 121 -----
+Item No. : 131 -----
 bool_op -> <= 	lookahead : id c_float c_int 
 
-Item No. : 122 -----
+Item No. : 132 -----
 bool_op -> >= 	lookahead : id c_float c_int 
 
-Item No. : 123 -----
+Item No. : 133 -----
 bool_op -> == 	lookahead : id c_float c_int 
 
-Item No. : 124 -----
+Item No. : 134 -----
+T -> T * . F 	lookahead : / - >= <= > % * + == < 
+F -> . id ++ 	lookahead : < == + * % > <= >= - / 
+F -> . H 	lookahead : < == + * % > <= >= - / 
+H -> . id 	lookahead : / - >= <= > % * + == < 
+H -> . const 	lookahead : / - >= <= > % * + == < 
+H -> . func_call 	lookahead : / - >= <= > % * + == < 
+const -> . c_int 	lookahead : < == + * % > <= >= - / 
+const -> . c_float 	lookahead : < == + * % > <= >= - / 
+func_call -> . id ( args ) 	lookahead : < == + * % > <= >= - / 
+func_call -> . id ( ) 	lookahead : < == + * % > <= >= - / 
+
+Item No. : 135 -----
+T -> T / . F 	lookahead : / - >= <= > % * + == < 
+F -> . id ++ 	lookahead : < == + * % > <= >= - / 
+F -> . H 	lookahead : < == + * % > <= >= - / 
+H -> . id 	lookahead : / - >= <= > % * + == < 
+H -> . const 	lookahead : / - >= <= > % * + == < 
+H -> . func_call 	lookahead : / - >= <= > % * + == < 
+const -> . c_int 	lookahead : < == + * % > <= >= - / 
+const -> . c_float 	lookahead : < == + * % > <= >= - / 
+func_call -> . id ( args ) 	lookahead : < == + * % > <= >= - / 
+func_call -> . id ( ) 	lookahead : < == + * % > <= >= - / 
+
+Item No. : 136 -----
+T -> T % . F 	lookahead : / - >= <= > % * + == < 
+F -> . id ++ 	lookahead : < == + * % > <= >= - / 
+F -> . H 	lookahead : < == + * % > <= >= - / 
+H -> . id 	lookahead : / - >= <= > % * + == < 
+H -> . const 	lookahead : / - >= <= > % * + == < 
+H -> . func_call 	lookahead : / - >= <= > % * + == < 
+const -> . c_int 	lookahead : < == + * % > <= >= - / 
+const -> . c_float 	lookahead : < == + * % > <= >= - / 
+func_call -> . id ( args ) 	lookahead : < == + * % > <= >= - / 
+func_call -> . id ( ) 	lookahead : < == + * % > <= >= - / 
+
+Item No. : 137 -----
 if_el -> if ( B ) . { stmts } else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B ) . { stmts } else { } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B ) . { } else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B ) . { } else { } 	lookahead : if int c_int float read id c_float return write } 
 
-Item No. : 125 -----
-func_call -> id ( . args ) 	lookahead : >= <= > == < 
-func_call -> id ( . ) 	lookahead : >= <= > == < 
+Item No. : 138 -----
+func_call -> id ( . args ) 	lookahead : / - % * + < == > <= >= 
+func_call -> id ( . ) 	lookahead : / - % * + < == > <= >= 
 args -> . args , H 	lookahead : , ) 
 args -> . H 	lookahead : , ) 
 H -> . id 	lookahead : , ) 
@@ -1014,37 +1127,79 @@ const -> . c_float 	lookahead : , )
 func_call -> . id ( args ) 	lookahead : , ) 
 func_call -> . id ( ) 	lookahead : , ) 
 
-Item No. : 126 -----
+Item No. : 139 -----
+F -> id ++ 	lookahead : / - % * + < == > <= >= 
+
+Item No. : 140 -----
 args -> args , H 	lookahead : , ) 
 
-Item No. : 127 -----
+Item No. : 141 -----
 func_call -> id ( args . ) 	lookahead : , ) 
 args -> args . , H 	lookahead : , ) 
 
-Item No. : 128 -----
+Item No. : 142 -----
 func_call -> id ( ) 	lookahead : , ) 
 
-Item No. : 129 -----
-H -> const 	lookahead : ) 
+Item No. : 143 -----
+func_call -> id ( args ) 	lookahead : ; 
 
-Item No. : 130 -----
-B -> H bool_op H 	lookahead : ) 
+Item No. : 144 -----
+H -> const 	lookahead : / - % * + ) 
 
-Item No. : 131 -----
-H -> func_call 	lookahead : ) 
+Item No. : 145 -----
+B -> E bool_op E 	lookahead : ) 
+E -> E . + T 	lookahead : - + ) 
+E -> E . - T 	lookahead : - + ) 
 
-Item No. : 132 -----
-H -> id 	lookahead : ) 
-func_call -> id . ( args ) 	lookahead : ) 
-func_call -> id . ( ) 	lookahead : ) 
+Item No. : 146 -----
+E -> T 	lookahead : - + ) 
+T -> T . * F 	lookahead : / - % * + ) 
+T -> T . / F 	lookahead : / - % * + ) 
+T -> T . % F 	lookahead : / - % * + ) 
 
-Item No. : 133 -----
-const -> c_int 	lookahead : ) 
+Item No. : 147 -----
+T -> F 	lookahead : / - % * + ) 
 
-Item No. : 134 -----
-const -> c_float 	lookahead : ) 
+Item No. : 148 -----
+F -> H 	lookahead : / - % * + ) 
 
-Item No. : 135 -----
+Item No. : 149 -----
+H -> func_call 	lookahead : / - % * + ) 
+
+Item No. : 150 -----
+F -> id . ++ 	lookahead : / - % * + ) 
+H -> id 	lookahead : / - % * + ) 
+func_call -> id . ( args ) 	lookahead : / - % * + ) 
+func_call -> id . ( ) 	lookahead : / - % * + ) 
+
+Item No. : 151 -----
+const -> c_int 	lookahead : / - % * + ) 
+
+Item No. : 152 -----
+const -> c_float 	lookahead : / - % * + ) 
+
+Item No. : 153 -----
+E -> E + T 	lookahead : - + < == > <= >= 
+T -> T . * F 	lookahead : / >= <= > % * == < + - 
+T -> T . / F 	lookahead : / >= <= > % * == < + - 
+T -> T . % F 	lookahead : / >= <= > % * == < + - 
+
+Item No. : 154 -----
+E -> E - T 	lookahead : - + < == > <= >= 
+T -> T . * F 	lookahead : / >= <= > % * == < + - 
+T -> T . / F 	lookahead : / >= <= > % * == < + - 
+T -> T . % F 	lookahead : / >= <= > % * == < + - 
+
+Item No. : 155 -----
+T -> T * F 	lookahead : / - >= <= > % * + == < 
+
+Item No. : 156 -----
+T -> T / F 	lookahead : / - >= <= > % * + == < 
+
+Item No. : 157 -----
+T -> T % F 	lookahead : / - >= <= > % * + == < 
+
+Item No. : 158 -----
 if_el -> if ( B ) { . stmts } else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B ) { . stmts } else { } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B ) { . } else { stmts } 	lookahead : if int c_int float read id c_float return write } 
@@ -1065,14 +1220,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -1090,19 +1243,87 @@ const -> . c_float 	lookahead : / - % * + ;
 func_call -> . id ( args ) 	lookahead : / - % * + ; 
 func_call -> . id ( ) 	lookahead : / - % * + ; 
 
-Item No. : 136 -----
-func_call -> id ( args . ) 	lookahead : >= <= > == < 
+Item No. : 159 -----
+func_call -> id ( args . ) 	lookahead : / - % * + < == > <= >= 
 args -> args . , H 	lookahead : , ) 
 
-Item No. : 137 -----
-func_call -> id ( ) 	lookahead : >= <= > == < 
+Item No. : 160 -----
+func_call -> id ( ) 	lookahead : / - % * + < == > <= >= 
 
-Item No. : 138 -----
+Item No. : 161 -----
 func_call -> id ( args ) 	lookahead : , ) 
 
-Item No. : 139 -----
-func_call -> id ( . args ) 	lookahead : ) 
-func_call -> id ( . ) 	lookahead : ) 
+Item No. : 162 -----
+E -> E + . T 	lookahead : - + ) 
+T -> . T * F 	lookahead : / ) % * + - 
+T -> . T / F 	lookahead : / ) % * + - 
+T -> . T % F 	lookahead : / ) % * + - 
+T -> . F 	lookahead : / ) % * + - 
+F -> . id ++ 	lookahead : / - % * + ) 
+F -> . H 	lookahead : / - % * + ) 
+H -> . id 	lookahead : / ) % * + - 
+H -> . const 	lookahead : / ) % * + - 
+H -> . func_call 	lookahead : / ) % * + - 
+const -> . c_int 	lookahead : / - % * + ) 
+const -> . c_float 	lookahead : / - % * + ) 
+func_call -> . id ( args ) 	lookahead : / - % * + ) 
+func_call -> . id ( ) 	lookahead : / - % * + ) 
+
+Item No. : 163 -----
+E -> E - . T 	lookahead : - + ) 
+T -> . T * F 	lookahead : / ) % * + - 
+T -> . T / F 	lookahead : / ) % * + - 
+T -> . T % F 	lookahead : / ) % * + - 
+T -> . F 	lookahead : / ) % * + - 
+F -> . id ++ 	lookahead : / - % * + ) 
+F -> . H 	lookahead : / - % * + ) 
+H -> . id 	lookahead : / ) % * + - 
+H -> . const 	lookahead : / ) % * + - 
+H -> . func_call 	lookahead : / ) % * + - 
+const -> . c_int 	lookahead : / - % * + ) 
+const -> . c_float 	lookahead : / - % * + ) 
+func_call -> . id ( args ) 	lookahead : / - % * + ) 
+func_call -> . id ( ) 	lookahead : / - % * + ) 
+
+Item No. : 164 -----
+T -> T * . F 	lookahead : / - % * + ) 
+F -> . id ++ 	lookahead : ) + * % - / 
+F -> . H 	lookahead : ) + * % - / 
+H -> . id 	lookahead : / - % * + ) 
+H -> . const 	lookahead : / - % * + ) 
+H -> . func_call 	lookahead : / - % * + ) 
+const -> . c_int 	lookahead : ) + * % - / 
+const -> . c_float 	lookahead : ) + * % - / 
+func_call -> . id ( args ) 	lookahead : ) + * % - / 
+func_call -> . id ( ) 	lookahead : ) + * % - / 
+
+Item No. : 165 -----
+T -> T / . F 	lookahead : / - % * + ) 
+F -> . id ++ 	lookahead : ) + * % - / 
+F -> . H 	lookahead : ) + * % - / 
+H -> . id 	lookahead : / - % * + ) 
+H -> . const 	lookahead : / - % * + ) 
+H -> . func_call 	lookahead : / - % * + ) 
+const -> . c_int 	lookahead : ) + * % - / 
+const -> . c_float 	lookahead : ) + * % - / 
+func_call -> . id ( args ) 	lookahead : ) + * % - / 
+func_call -> . id ( ) 	lookahead : ) + * % - / 
+
+Item No. : 166 -----
+T -> T % . F 	lookahead : / - % * + ) 
+F -> . id ++ 	lookahead : ) + * % - / 
+F -> . H 	lookahead : ) + * % - / 
+H -> . id 	lookahead : / - % * + ) 
+H -> . const 	lookahead : / - % * + ) 
+H -> . func_call 	lookahead : / - % * + ) 
+const -> . c_int 	lookahead : ) + * % - / 
+const -> . c_float 	lookahead : ) + * % - / 
+func_call -> . id ( args ) 	lookahead : ) + * % - / 
+func_call -> . id ( ) 	lookahead : ) + * % - / 
+
+Item No. : 167 -----
+func_call -> id ( . args ) 	lookahead : / - % * + ) 
+func_call -> id ( . ) 	lookahead : / - % * + ) 
 args -> . args , H 	lookahead : , ) 
 args -> . H 	lookahead : , ) 
 H -> . id 	lookahead : , ) 
@@ -1113,7 +1334,10 @@ const -> . c_float 	lookahead : , )
 func_call -> . id ( args ) 	lookahead : , ) 
 func_call -> . id ( ) 	lookahead : , ) 
 
-Item No. : 140 -----
+Item No. : 168 -----
+F -> id ++ 	lookahead : / - % * + ) 
+
+Item No. : 169 -----
 if_el -> if ( B ) { stmts . } else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B ) { stmts . } else { } 	lookahead : if int c_int float read id c_float return write } 
 stmts -> stmts . stmt 	lookahead : if write return c_float id read float c_int int } 
@@ -1130,14 +1354,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -1155,36 +1377,57 @@ const -> . c_float 	lookahead : / - % * + ;
 func_call -> . id ( args ) 	lookahead : / - % * + ; 
 func_call -> . id ( ) 	lookahead : / - % * + ; 
 
-Item No. : 141 -----
+Item No. : 170 -----
 if_el -> if ( B ) { } . else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B ) { } . else { } 	lookahead : if int c_int float read id c_float return write } 
 
-Item No. : 142 -----
-func_call -> id ( args ) 	lookahead : >= <= > == < 
+Item No. : 171 -----
+func_call -> id ( args ) 	lookahead : / - % * + < == > <= >= 
 
-Item No. : 143 -----
-func_call -> id ( args . ) 	lookahead : ) 
+Item No. : 172 -----
+E -> E + T 	lookahead : - + ) 
+T -> T . * F 	lookahead : / ) % * + - 
+T -> T . / F 	lookahead : / ) % * + - 
+T -> T . % F 	lookahead : / ) % * + - 
+
+Item No. : 173 -----
+E -> E - T 	lookahead : - + ) 
+T -> T . * F 	lookahead : / ) % * + - 
+T -> T . / F 	lookahead : / ) % * + - 
+T -> T . % F 	lookahead : / ) % * + - 
+
+Item No. : 174 -----
+T -> T * F 	lookahead : / - % * + ) 
+
+Item No. : 175 -----
+T -> T / F 	lookahead : / - % * + ) 
+
+Item No. : 176 -----
+T -> T % F 	lookahead : / - % * + ) 
+
+Item No. : 177 -----
+func_call -> id ( args . ) 	lookahead : / - % * + ) 
 args -> args . , H 	lookahead : , ) 
 
-Item No. : 144 -----
-func_call -> id ( ) 	lookahead : ) 
+Item No. : 178 -----
+func_call -> id ( ) 	lookahead : / - % * + ) 
 
-Item No. : 145 -----
+Item No. : 179 -----
 if_el -> if ( B ) { stmts } . else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B ) { stmts } . else { } 	lookahead : if int c_int float read id c_float return write } 
 
-Item No. : 146 -----
+Item No. : 180 -----
 if_el -> if ( B ) { } else . { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B ) { } else . { } 	lookahead : if int c_int float read id c_float return write } 
 
-Item No. : 147 -----
-func_call -> id ( args ) 	lookahead : ) 
+Item No. : 181 -----
+func_call -> id ( args ) 	lookahead : / - % * + ) 
 
-Item No. : 148 -----
+Item No. : 182 -----
 if_el -> if ( B ) { stmts } else . { stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B ) { stmts } else . { } 	lookahead : if int c_int float read id c_float return write } 
 
-Item No. : 149 -----
+Item No. : 183 -----
 if_el -> if ( B ) { } else { . stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B ) { } else { . } 	lookahead : if int c_int float read id c_float return write } 
 stmts -> . stmts stmt 	lookahead : if write return c_float id read float c_int int } 
@@ -1203,14 +1446,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -1228,7 +1469,7 @@ const -> . c_float 	lookahead : / - % * + ;
 func_call -> . id ( args ) 	lookahead : / - % * + ; 
 func_call -> . id ( ) 	lookahead : / - % * + ; 
 
-Item No. : 150 -----
+Item No. : 184 -----
 if_el -> if ( B ) { stmts } else { . stmts } 	lookahead : if int c_int float read id c_float return write } 
 if_el -> if ( B ) { stmts } else { . } 	lookahead : if int c_int float read id c_float return write } 
 stmts -> . stmts stmt 	lookahead : if write return c_float id read float c_int int } 
@@ -1247,14 +1488,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -1272,7 +1511,7 @@ const -> . c_float 	lookahead : / - % * + ;
 func_call -> . id ( args ) 	lookahead : / - % * + ; 
 func_call -> . id ( ) 	lookahead : / - % * + ; 
 
-Item No. : 151 -----
+Item No. : 185 -----
 if_el -> if ( B ) { } else { stmts . } 	lookahead : if int c_int float read id c_float return write } 
 stmts -> stmts . stmt 	lookahead : if write return c_float id read float c_int int } 
 stmts -> stmts . if_el 	lookahead : if write return c_float id read float c_int int } 
@@ -1288,14 +1527,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -1313,10 +1550,10 @@ const -> . c_float 	lookahead : / - % * + ;
 func_call -> . id ( args ) 	lookahead : / - % * + ; 
 func_call -> . id ( ) 	lookahead : / - % * + ; 
 
-Item No. : 152 -----
+Item No. : 186 -----
 if_el -> if ( B ) { } else { } 	lookahead : if int c_int float read id c_float return write } 
 
-Item No. : 153 -----
+Item No. : 187 -----
 if_el -> if ( B ) { stmts } else { stmts . } 	lookahead : if int c_int float read id c_float return write } 
 stmts -> stmts . stmt 	lookahead : if write return c_float id read float c_int int } 
 stmts -> stmts . if_el 	lookahead : if write return c_float id read float c_int int } 
@@ -1332,14 +1569,12 @@ norm -> . ret ; 	lookahead : if write return c_float id read float c_int int }
 norm -> . exp ; 	lookahead : if write return c_float id read float c_int int } 
 data_type -> . int 	lookahead : id 
 data_type -> . float 	lookahead : id 
-io -> . io_op id 	lookahead : ; 
-io -> . io_op const 	lookahead : ; 
+io -> . write H 	lookahead : ; 
+io -> . read id 	lookahead : ; 
 ret -> . return id 	lookahead : ; 
 ret -> . return const 	lookahead : ; 
 exp -> . id = E 	lookahead : ; 
 exp -> . E 	lookahead : ; 
-io_op -> . read 	lookahead : c_int c_float id 
-io_op -> . write 	lookahead : c_int c_float id 
 E -> . E + T 	lookahead : - + ; 
 E -> . E - T 	lookahead : - + ; 
 E -> . T 	lookahead : - + ; 
@@ -1357,13 +1592,13 @@ const -> . c_float 	lookahead : / - % * + ;
 func_call -> . id ( args ) 	lookahead : / - % * + ; 
 func_call -> . id ( ) 	lookahead : / - % * + ; 
 
-Item No. : 154 -----
+Item No. : 188 -----
 if_el -> if ( B ) { stmts } else { } 	lookahead : if int c_int float read id c_float return write } 
 
-Item No. : 155 -----
+Item No. : 189 -----
 if_el -> if ( B ) { } else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 
-Item No. : 156 -----
+Item No. : 190 -----
 if_el -> if ( B ) { stmts } else { stmts } 	lookahead : if int c_int float read id c_float return write } 
 
 Edge List -----
@@ -1423,555 +1658,657 @@ Edge List -----
 	27	39	ret
 	27	40	exp
 	27	41	const
-	27	42	io_op
-	27	43	E
-	27	44	T
-	27	45	F
-	27	46	H
-	27	47	if_el
-	27	48	func_call
+	27	42	E
+	27	43	T
+	27	44	F
+	27	45	H
+	27	46	if_el
+	27	47	func_call
 	27	7	int
 	27	8	float
-	27	49	}
-	27	50	id
-	27	51	read
-	27	52	write
-	27	53	return
-	27	54	c_int
-	27	55	c_float
-	27	56	if
+	27	48	}
+	27	49	id
+	27	50	read
+	27	51	write
+	27	52	return
+	27	53	c_int
+	27	54	c_float
+	27	55	if
 	28	33	data_type
 	28	34	decl
-	28	57	stmts
+	28	56	stmts
 	28	36	stmt
 	28	37	norm
 	28	38	io
 	28	39	ret
 	28	40	exp
 	28	41	const
-	28	42	io_op
-	28	43	E
-	28	44	T
-	28	45	F
-	28	46	H
-	28	47	if_el
-	28	48	func_call
+	28	42	E
+	28	43	T
+	28	44	F
+	28	45	H
+	28	46	if_el
+	28	47	func_call
 	28	7	int
 	28	8	float
-	28	58	}
-	28	50	id
-	28	51	read
-	28	52	write
-	28	53	return
-	28	54	c_int
-	28	55	c_float
-	28	56	if
-	29	59	{
+	28	57	}
+	28	49	id
+	28	50	read
+	28	51	write
+	28	52	return
+	28	53	c_int
+	28	54	c_float
+	28	55	if
+	29	58	{
 	30	33	data_type
 	30	34	decl
-	30	60	stmts
+	30	59	stmts
 	30	36	stmt
 	30	37	norm
 	30	38	io
 	30	39	ret
 	30	40	exp
 	30	41	const
-	30	42	io_op
-	30	43	E
-	30	44	T
-	30	45	F
-	30	46	H
-	30	47	if_el
-	30	48	func_call
+	30	42	E
+	30	43	T
+	30	44	F
+	30	45	H
+	30	46	if_el
+	30	47	func_call
 	30	7	int
 	30	8	float
-	30	61	}
-	30	50	id
-	30	51	read
-	30	52	write
-	30	53	return
-	30	54	c_int
-	30	55	c_float
-	30	56	if
+	30	60	}
+	30	49	id
+	30	50	read
+	30	51	write
+	30	52	return
+	30	53	c_int
+	30	54	c_float
+	30	55	if
 	31	33	data_type
 	31	34	decl
-	31	62	stmts
+	31	61	stmts
 	31	36	stmt
 	31	37	norm
 	31	38	io
 	31	39	ret
 	31	40	exp
 	31	41	const
-	31	42	io_op
-	31	43	E
-	31	44	T
-	31	45	F
-	31	46	H
-	31	47	if_el
-	31	48	func_call
+	31	42	E
+	31	43	T
+	31	44	F
+	31	45	H
+	31	46	if_el
+	31	47	func_call
 	31	7	int
 	31	8	float
-	31	63	}
-	31	50	id
-	31	51	read
-	31	52	write
-	31	53	return
-	31	54	c_int
-	31	55	c_float
-	31	56	if
-	33	64	id
+	31	62	}
+	31	49	id
+	31	50	read
+	31	51	write
+	31	52	return
+	31	53	c_int
+	31	54	c_float
+	31	55	if
+	33	63	id
 	35	33	data_type
 	35	34	decl
-	35	65	stmt
+	35	64	stmt
 	35	37	norm
 	35	38	io
 	35	39	ret
 	35	40	exp
 	35	41	const
-	35	42	io_op
-	35	43	E
-	35	44	T
-	35	45	F
-	35	46	H
-	35	66	if_el
-	35	48	func_call
+	35	42	E
+	35	43	T
+	35	44	F
+	35	45	H
+	35	65	if_el
+	35	47	func_call
 	35	7	int
 	35	8	float
-	35	67	}
-	35	50	id
-	35	51	read
-	35	52	write
-	35	53	return
-	35	54	c_int
-	35	55	c_float
-	35	56	if
-	38	68	;
-	39	69	;
-	40	70	;
-	42	71	const
-	42	72	id
-	42	73	c_int
-	42	74	c_float
-	43	75	+
-	43	76	-
-	44	77	*
-	44	78	/
-	44	79	%
-	50	80	(
-	50	81	=
-	50	82	++
-	53	83	const
-	53	84	id
-	53	73	c_int
-	53	74	c_float
-	56	85	(
-	57	33	data_type
-	57	34	decl
-	57	65	stmt
-	57	37	norm
-	57	38	io
-	57	39	ret
-	57	40	exp
-	57	41	const
-	57	42	io_op
-	57	43	E
-	57	44	T
-	57	45	F
-	57	46	H
-	57	66	if_el
-	57	48	func_call
-	57	7	int
-	57	8	float
-	57	86	}
-	57	50	id
-	57	51	read
-	57	52	write
-	57	53	return
-	57	54	c_int
-	57	55	c_float
-	57	56	if
+	35	66	}
+	35	49	id
+	35	50	read
+	35	51	write
+	35	52	return
+	35	53	c_int
+	35	54	c_float
+	35	55	if
+	38	67	;
+	39	68	;
+	40	69	;
+	42	70	+
+	42	71	-
+	43	72	*
+	43	73	/
+	43	74	%
+	49	75	(
+	49	76	=
+	49	77	++
+	50	78	id
+	51	79	const
+	51	80	H
+	51	81	func_call
+	51	82	id
+	51	83	c_int
+	51	84	c_float
+	52	85	const
+	52	86	id
+	52	83	c_int
+	52	84	c_float
+	55	87	(
+	56	33	data_type
+	56	34	decl
+	56	64	stmt
+	56	37	norm
+	56	38	io
+	56	39	ret
+	56	40	exp
+	56	41	const
+	56	42	E
+	56	43	T
+	56	44	F
+	56	45	H
+	56	65	if_el
+	56	47	func_call
+	56	7	int
+	56	8	float
+	56	88	}
+	56	49	id
+	56	50	read
+	56	51	write
+	56	52	return
+	56	53	c_int
+	56	54	c_float
+	56	55	if
+	58	33	data_type
+	58	34	decl
+	58	89	stmts
+	58	36	stmt
+	58	37	norm
+	58	38	io
+	58	39	ret
+	58	40	exp
+	58	41	const
+	58	42	E
+	58	43	T
+	58	44	F
+	58	45	H
+	58	46	if_el
+	58	47	func_call
+	58	7	int
+	58	8	float
+	58	90	}
+	58	49	id
+	58	50	read
+	58	51	write
+	58	52	return
+	58	53	c_int
+	58	54	c_float
+	58	55	if
 	59	33	data_type
 	59	34	decl
-	59	87	stmts
-	59	36	stmt
+	59	64	stmt
 	59	37	norm
 	59	38	io
 	59	39	ret
 	59	40	exp
 	59	41	const
-	59	42	io_op
-	59	43	E
-	59	44	T
-	59	45	F
-	59	46	H
-	59	47	if_el
-	59	48	func_call
+	59	42	E
+	59	43	T
+	59	44	F
+	59	45	H
+	59	65	if_el
+	59	47	func_call
 	59	7	int
 	59	8	float
-	59	88	}
-	59	50	id
-	59	51	read
-	59	52	write
-	59	53	return
-	59	54	c_int
-	59	55	c_float
-	59	56	if
-	60	33	data_type
-	60	34	decl
-	60	65	stmt
-	60	37	norm
-	60	38	io
-	60	39	ret
-	60	40	exp
-	60	41	const
-	60	42	io_op
-	60	43	E
-	60	44	T
-	60	45	F
-	60	46	H
-	60	66	if_el
-	60	48	func_call
-	60	7	int
-	60	8	float
-	60	89	}
-	60	50	id
-	60	51	read
-	60	52	write
-	60	53	return
-	60	54	c_int
-	60	55	c_float
-	60	56	if
-	62	33	data_type
-	62	34	decl
-	62	65	stmt
-	62	37	norm
-	62	38	io
-	62	39	ret
-	62	40	exp
-	62	41	const
-	62	42	io_op
-	62	43	E
-	62	44	T
-	62	45	F
-	62	46	H
-	62	66	if_el
-	62	48	func_call
-	62	7	int
-	62	8	float
-	62	90	}
-	62	50	id
-	62	51	read
-	62	52	write
-	62	53	return
-	62	54	c_int
-	62	55	c_float
-	62	56	if
-	64	91	;
-	75	41	const
-	75	92	T
-	75	45	F
-	75	46	H
-	75	48	func_call
-	75	93	id
-	75	54	c_int
-	75	55	c_float
+	59	91	}
+	59	49	id
+	59	50	read
+	59	51	write
+	59	52	return
+	59	53	c_int
+	59	54	c_float
+	59	55	if
+	61	33	data_type
+	61	34	decl
+	61	64	stmt
+	61	37	norm
+	61	38	io
+	61	39	ret
+	61	40	exp
+	61	41	const
+	61	42	E
+	61	43	T
+	61	44	F
+	61	45	H
+	61	65	if_el
+	61	47	func_call
+	61	7	int
+	61	8	float
+	61	92	}
+	61	49	id
+	61	50	read
+	61	51	write
+	61	52	return
+	61	53	c_int
+	61	54	c_float
+	61	55	if
+	63	93	;
+	70	41	const
+	70	94	T
+	70	44	F
+	70	45	H
+	70	47	func_call
+	70	95	id
+	70	53	c_int
+	70	54	c_float
+	71	41	const
+	71	96	T
+	71	44	F
+	71	45	H
+	71	47	func_call
+	71	95	id
+	71	53	c_int
+	71	54	c_float
+	72	41	const
+	72	97	F
+	72	45	H
+	72	47	func_call
+	72	95	id
+	72	53	c_int
+	72	54	c_float
+	73	41	const
+	73	98	F
+	73	45	H
+	73	47	func_call
+	73	95	id
+	73	53	c_int
+	73	54	c_float
+	74	41	const
+	74	99	F
+	74	45	H
+	74	47	func_call
+	74	95	id
+	74	53	c_int
+	74	54	c_float
+	75	100	const
+	75	101	H
+	75	102	func_call
+	75	103	args
+	75	104	)
+	75	105	id
+	75	106	c_int
+	75	107	c_float
 	76	41	const
-	76	94	T
-	76	45	F
-	76	46	H
-	76	48	func_call
-	76	93	id
-	76	54	c_int
-	76	55	c_float
-	77	41	const
-	77	95	F
-	77	46	H
-	77	48	func_call
-	77	93	id
-	77	54	c_int
-	77	55	c_float
-	78	41	const
-	78	96	F
-	78	46	H
-	78	48	func_call
-	78	93	id
-	78	54	c_int
-	78	55	c_float
-	79	41	const
-	79	97	F
-	79	46	H
-	79	48	func_call
-	79	93	id
-	79	54	c_int
-	79	55	c_float
-	80	98	const
-	80	99	H
-	80	100	func_call
-	80	101	args
-	80	102	)
-	80	103	id
-	80	104	c_int
-	80	105	c_float
-	81	41	const
-	81	106	E
-	81	44	T
-	81	45	F
-	81	46	H
-	81	48	func_call
-	81	93	id
-	81	54	c_int
-	81	55	c_float
-	85	107	const
-	85	108	H
-	85	109	B
-	85	110	func_call
-	85	111	id
-	85	112	c_int
-	85	113	c_float
-	87	33	data_type
-	87	34	decl
-	87	65	stmt
-	87	37	norm
-	87	38	io
-	87	39	ret
-	87	40	exp
-	87	41	const
-	87	42	io_op
-	87	43	E
-	87	44	T
-	87	45	F
-	87	46	H
-	87	66	if_el
-	87	48	func_call
-	87	7	int
-	87	8	float
-	87	114	}
-	87	50	id
-	87	51	read
-	87	52	write
-	87	53	return
-	87	54	c_int
-	87	55	c_float
-	87	56	if
-	92	77	*
-	92	78	/
-	92	79	%
-	93	80	(
-	93	82	++
-	94	77	*
-	94	78	/
-	94	79	%
-	101	115	)
-	101	116	,
-	103	117	(
-	106	75	+
-	106	76	-
-	108	118	bool_op
-	108	119	<
-	108	120	>
-	108	121	<=
-	108	122	>=
-	108	123	==
-	109	124	)
-	111	125	(
-	116	98	const
-	116	126	H
-	116	100	func_call
-	116	103	id
-	116	104	c_int
-	116	105	c_float
-	117	98	const
-	117	99	H
-	117	100	func_call
-	117	127	args
-	117	128	)
-	117	103	id
-	117	104	c_int
-	117	105	c_float
-	118	129	const
-	118	130	H
-	118	131	func_call
-	118	132	id
-	118	133	c_int
-	118	134	c_float
-	124	135	{
-	125	98	const
-	125	99	H
-	125	100	func_call
-	125	136	args
-	125	137	)
-	125	103	id
-	125	104	c_int
-	125	105	c_float
-	127	138	)
-	127	116	,
-	132	139	(
-	135	33	data_type
-	135	34	decl
-	135	140	stmts
-	135	36	stmt
-	135	37	norm
-	135	38	io
-	135	39	ret
-	135	40	exp
-	135	41	const
-	135	42	io_op
-	135	43	E
-	135	44	T
-	135	45	F
-	135	46	H
-	135	47	if_el
-	135	48	func_call
-	135	7	int
-	135	8	float
-	135	141	}
-	135	50	id
-	135	51	read
-	135	52	write
-	135	53	return
-	135	54	c_int
-	135	55	c_float
-	135	56	if
-	136	142	)
-	136	116	,
-	139	98	const
-	139	99	H
-	139	100	func_call
-	139	143	args
-	139	144	)
-	139	103	id
-	139	104	c_int
-	139	105	c_float
-	140	33	data_type
-	140	34	decl
-	140	65	stmt
-	140	37	norm
-	140	38	io
-	140	39	ret
-	140	40	exp
-	140	41	const
-	140	42	io_op
-	140	43	E
-	140	44	T
-	140	45	F
-	140	46	H
-	140	66	if_el
-	140	48	func_call
-	140	7	int
-	140	8	float
-	140	145	}
-	140	50	id
-	140	51	read
-	140	52	write
-	140	53	return
-	140	54	c_int
-	140	55	c_float
-	140	56	if
-	141	146	else
-	143	147	)
-	143	116	,
-	145	148	else
-	146	149	{
-	148	150	{
-	149	33	data_type
-	149	34	decl
-	149	151	stmts
-	149	36	stmt
-	149	37	norm
-	149	38	io
-	149	39	ret
-	149	40	exp
-	149	41	const
-	149	42	io_op
-	149	43	E
-	149	44	T
-	149	45	F
-	149	46	H
-	149	47	if_el
-	149	48	func_call
-	149	7	int
-	149	8	float
-	149	152	}
-	149	50	id
-	149	51	read
-	149	52	write
-	149	53	return
-	149	54	c_int
-	149	55	c_float
-	149	56	if
-	150	33	data_type
-	150	34	decl
-	150	153	stmts
-	150	36	stmt
-	150	37	norm
-	150	38	io
-	150	39	ret
-	150	40	exp
-	150	41	const
-	150	42	io_op
-	150	43	E
-	150	44	T
-	150	45	F
-	150	46	H
-	150	47	if_el
-	150	48	func_call
-	150	7	int
-	150	8	float
-	150	154	}
-	150	50	id
-	150	51	read
-	150	52	write
-	150	53	return
-	150	54	c_int
-	150	55	c_float
-	150	56	if
-	151	33	data_type
-	151	34	decl
-	151	65	stmt
-	151	37	norm
-	151	38	io
-	151	39	ret
-	151	40	exp
-	151	41	const
-	151	42	io_op
-	151	43	E
-	151	44	T
-	151	45	F
-	151	46	H
-	151	66	if_el
-	151	48	func_call
-	151	7	int
-	151	8	float
-	151	155	}
-	151	50	id
-	151	51	read
-	151	52	write
-	151	53	return
-	151	54	c_int
-	151	55	c_float
-	151	56	if
-	153	33	data_type
-	153	34	decl
-	153	65	stmt
-	153	37	norm
-	153	38	io
-	153	39	ret
-	153	40	exp
-	153	41	const
-	153	42	io_op
-	153	43	E
-	153	44	T
-	153	45	F
-	153	46	H
-	153	66	if_el
-	153	48	func_call
-	153	7	int
-	153	8	float
-	153	156	}
-	153	50	id
-	153	51	read
-	153	52	write
-	153	53	return
-	153	54	c_int
-	153	55	c_float
-	153	56	if
+	76	108	E
+	76	43	T
+	76	44	F
+	76	45	H
+	76	47	func_call
+	76	95	id
+	76	53	c_int
+	76	54	c_float
+	82	109	(
+	87	110	const
+	87	111	E
+	87	112	T
+	87	113	F
+	87	114	H
+	87	115	B
+	87	116	func_call
+	87	117	id
+	87	118	c_int
+	87	119	c_float
+	89	33	data_type
+	89	34	decl
+	89	64	stmt
+	89	37	norm
+	89	38	io
+	89	39	ret
+	89	40	exp
+	89	41	const
+	89	42	E
+	89	43	T
+	89	44	F
+	89	45	H
+	89	65	if_el
+	89	47	func_call
+	89	7	int
+	89	8	float
+	89	120	}
+	89	49	id
+	89	50	read
+	89	51	write
+	89	52	return
+	89	53	c_int
+	89	54	c_float
+	89	55	if
+	94	72	*
+	94	73	/
+	94	74	%
+	95	75	(
+	95	77	++
+	96	72	*
+	96	73	/
+	96	74	%
+	103	121	)
+	103	122	,
+	105	123	(
+	108	70	+
+	108	71	-
+	109	100	const
+	109	101	H
+	109	102	func_call
+	109	124	args
+	109	125	)
+	109	105	id
+	109	106	c_int
+	109	107	c_float
+	111	126	bool_op
+	111	127	+
+	111	128	-
+	111	129	<
+	111	130	>
+	111	131	<=
+	111	132	>=
+	111	133	==
+	112	134	*
+	112	135	/
+	112	136	%
+	115	137	)
+	117	138	(
+	117	139	++
+	122	100	const
+	122	140	H
+	122	102	func_call
+	122	105	id
+	122	106	c_int
+	122	107	c_float
+	123	100	const
+	123	101	H
+	123	102	func_call
+	123	141	args
+	123	142	)
+	123	105	id
+	123	106	c_int
+	123	107	c_float
+	124	143	)
+	124	122	,
+	126	144	const
+	126	145	E
+	126	146	T
+	126	147	F
+	126	148	H
+	126	149	func_call
+	126	150	id
+	126	151	c_int
+	126	152	c_float
+	127	110	const
+	127	153	T
+	127	113	F
+	127	114	H
+	127	116	func_call
+	127	117	id
+	127	118	c_int
+	127	119	c_float
+	128	110	const
+	128	154	T
+	128	113	F
+	128	114	H
+	128	116	func_call
+	128	117	id
+	128	118	c_int
+	128	119	c_float
+	134	110	const
+	134	155	F
+	134	114	H
+	134	116	func_call
+	134	117	id
+	134	118	c_int
+	134	119	c_float
+	135	110	const
+	135	156	F
+	135	114	H
+	135	116	func_call
+	135	117	id
+	135	118	c_int
+	135	119	c_float
+	136	110	const
+	136	157	F
+	136	114	H
+	136	116	func_call
+	136	117	id
+	136	118	c_int
+	136	119	c_float
+	137	158	{
+	138	100	const
+	138	101	H
+	138	102	func_call
+	138	159	args
+	138	160	)
+	138	105	id
+	138	106	c_int
+	138	107	c_float
+	141	161	)
+	141	122	,
+	145	162	+
+	145	163	-
+	146	164	*
+	146	165	/
+	146	166	%
+	150	167	(
+	150	168	++
+	153	134	*
+	153	135	/
+	153	136	%
+	154	134	*
+	154	135	/
+	154	136	%
+	158	33	data_type
+	158	34	decl
+	158	169	stmts
+	158	36	stmt
+	158	37	norm
+	158	38	io
+	158	39	ret
+	158	40	exp
+	158	41	const
+	158	42	E
+	158	43	T
+	158	44	F
+	158	45	H
+	158	46	if_el
+	158	47	func_call
+	158	7	int
+	158	8	float
+	158	170	}
+	158	49	id
+	158	50	read
+	158	51	write
+	158	52	return
+	158	53	c_int
+	158	54	c_float
+	158	55	if
+	159	171	)
+	159	122	,
+	162	144	const
+	162	172	T
+	162	147	F
+	162	148	H
+	162	149	func_call
+	162	150	id
+	162	151	c_int
+	162	152	c_float
+	163	144	const
+	163	173	T
+	163	147	F
+	163	148	H
+	163	149	func_call
+	163	150	id
+	163	151	c_int
+	163	152	c_float
+	164	144	const
+	164	174	F
+	164	148	H
+	164	149	func_call
+	164	150	id
+	164	151	c_int
+	164	152	c_float
+	165	144	const
+	165	175	F
+	165	148	H
+	165	149	func_call
+	165	150	id
+	165	151	c_int
+	165	152	c_float
+	166	144	const
+	166	176	F
+	166	148	H
+	166	149	func_call
+	166	150	id
+	166	151	c_int
+	166	152	c_float
+	167	100	const
+	167	101	H
+	167	102	func_call
+	167	177	args
+	167	178	)
+	167	105	id
+	167	106	c_int
+	167	107	c_float
+	169	33	data_type
+	169	34	decl
+	169	64	stmt
+	169	37	norm
+	169	38	io
+	169	39	ret
+	169	40	exp
+	169	41	const
+	169	42	E
+	169	43	T
+	169	44	F
+	169	45	H
+	169	65	if_el
+	169	47	func_call
+	169	7	int
+	169	8	float
+	169	179	}
+	169	49	id
+	169	50	read
+	169	51	write
+	169	52	return
+	169	53	c_int
+	169	54	c_float
+	169	55	if
+	170	180	else
+	172	164	*
+	172	165	/
+	172	166	%
+	173	164	*
+	173	165	/
+	173	166	%
+	177	181	)
+	177	122	,
+	179	182	else
+	180	183	{
+	182	184	{
+	183	33	data_type
+	183	34	decl
+	183	185	stmts
+	183	36	stmt
+	183	37	norm
+	183	38	io
+	183	39	ret
+	183	40	exp
+	183	41	const
+	183	42	E
+	183	43	T
+	183	44	F
+	183	45	H
+	183	46	if_el
+	183	47	func_call
+	183	7	int
+	183	8	float
+	183	186	}
+	183	49	id
+	183	50	read
+	183	51	write
+	183	52	return
+	183	53	c_int
+	183	54	c_float
+	183	55	if
+	184	33	data_type
+	184	34	decl
+	184	187	stmts
+	184	36	stmt
+	184	37	norm
+	184	38	io
+	184	39	ret
+	184	40	exp
+	184	41	const
+	184	42	E
+	184	43	T
+	184	44	F
+	184	45	H
+	184	46	if_el
+	184	47	func_call
+	184	7	int
+	184	8	float
+	184	188	}
+	184	49	id
+	184	50	read
+	184	51	write
+	184	52	return
+	184	53	c_int
+	184	54	c_float
+	184	55	if
+	185	33	data_type
+	185	34	decl
+	185	64	stmt
+	185	37	norm
+	185	38	io
+	185	39	ret
+	185	40	exp
+	185	41	const
+	185	42	E
+	185	43	T
+	185	44	F
+	185	45	H
+	185	65	if_el
+	185	47	func_call
+	185	7	int
+	185	8	float
+	185	189	}
+	185	49	id
+	185	50	read
+	185	51	write
+	185	52	return
+	185	53	c_int
+	185	54	c_float
+	185	55	if
+	187	33	data_type
+	187	34	decl
+	187	64	stmt
+	187	37	norm
+	187	38	io
+	187	39	ret
+	187	40	exp
+	187	41	const
+	187	42	E
+	187	43	T
+	187	44	F
+	187	45	H
+	187	65	if_el
+	187	47	func_call
+	187	7	int
+	187	8	float
+	187	190	}
+	187	49	id
+	187	50	read
+	187	51	write
+	187	52	return
+	187	53	c_int
+	187	54	c_float
+	187	55	if
